@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { ServiceService } from 'src/app/service/service.service';
 import { AuthData } from 'src/app/auth/auth-data';
@@ -15,7 +15,7 @@ export class AllpostComponent implements OnInit {
   posts: Post[] | undefined;
   // auth!: AuthData[];
   sub!: Subscription;
-
+  @Input() post!: Post;
   constructor(
     private postSrv: ServiceService,
     private authSrv: AuthService,
@@ -36,7 +36,7 @@ export class AllpostComponent implements OnInit {
 
   singlepost(id: number) {
     this.postSrv.getpostsingolo(id).subscribe((it) => {
-      this.router.navigate([`/post`]);
+      this.router.navigate([`/posts`, id]);
       console.log(it);
     });
   }

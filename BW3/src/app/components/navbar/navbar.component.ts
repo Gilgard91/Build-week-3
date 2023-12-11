@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
     this.authSrv.user$.subscribe((_user) => {
       this.utente = _user;
     });
+    // this.authSrv.restore();
   }
 
   logout() {

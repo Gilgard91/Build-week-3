@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllpostComponent } from './components/allpost/allpost.component';
 import { SinglepostComponent } from './components/singlepost/singlepost.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { TokenInterceptor } from './auth/token.interceptor';
 const routes: Route[] = [
   {
     path: '',
@@ -24,7 +25,7 @@ const routes: Route[] = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'post',
+    path: 'posts/:id',
     component: SinglepostComponent,
     canActivate: [AuthGuard],
   },
@@ -63,7 +64,13 @@ const routes: Route[] = [
     FormsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
