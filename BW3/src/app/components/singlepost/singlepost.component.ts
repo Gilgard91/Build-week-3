@@ -13,7 +13,7 @@ export class SinglepostComponent implements OnInit {
 
   ngOnInit(): void {
     const postid = this.postSrv.getpostid();
-    return this.single(postid);
+    this.single(postid);
   }
 
   single(id: number) {

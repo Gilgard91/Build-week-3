@@ -19,6 +19,6 @@ export class ServiceService {
     return this.single.id;
   }
   getpostsingolo(id: number) {
-    return this.http.get<Post[]>(`${this.apiURL}/posts/${id}`);
+    return this.http.get<Post>(`${this.apiURL}/posts/${id}`);
   }
 }
