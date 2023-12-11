@@ -1,0 +1,7 @@
+<div *ngFor="let item of posts">
+  <div>
+    <p>-{{ item.body }}</p>
+    <br />
+    <button (click)="singlepost(item.id)">Guarda qui</button>
+  </div>
+</div>
