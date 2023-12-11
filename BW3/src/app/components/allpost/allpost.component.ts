@@ -40,4 +40,10 @@ export class AllpostComponent implements OnInit {
       console.log(it);
     });
   }
+  modifyPost(id: number) {
+    this.postSrv.getpostsingolo(id).subscribe((it) => {
+      this.router.navigate([`/edit`, id]);
+      console.log(it);
+    });
+  }
 }

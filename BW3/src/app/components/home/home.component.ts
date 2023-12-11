@@ -10,8 +10,9 @@ import { AuthData } from 'src/app/auth/auth-data';
 export class HomeComponent implements OnInit {
   utente!: AuthData | null;
   constructor(private authSrv: AuthService) {}
-
   ngOnInit(): void {
+    this.authSrv.restore();
+
     this.authSrv.user$.subscribe((_user) => {
       this.utente = _user;
     });

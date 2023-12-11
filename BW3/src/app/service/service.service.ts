@@ -21,4 +21,7 @@ export class ServiceService {
   getpostsingolo(id: number) {
     return this.http.get<Post>(`${this.apiURL}/posts/${id}`);
   }
+  putPost(id: number, data: { title: string; body: string }) {
+    return this.http.put<Post>(`${this.apiURL}/posts/${id}`, data);
+  }
 }
