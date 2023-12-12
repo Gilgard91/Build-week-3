@@ -25,21 +25,31 @@
     <button type="submit" [disabled]="!form.valid">Submit</button>
   </div>
 </form> -->
-<form [formGroup]="form" (ngSubmit)="Submit()">
-  <label for="title">Title:</label>
-  <input type="text" formControlName="title" id="title" required />
-
-  <br />
-  <br />
-
-  <label for="body">Biography: </label>
-  <textarea
-    formControlName="body"
-    id="body"
-    cols="30"
-    rows="10"
-    required
-  ></textarea>
-
-  <button type="submit" [disabled]="!form.valid">Submit</button>
+<form class="mt-5" [formGroup]="form" (ngSubmit)="Submit()">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title:</label>
+    <input
+      type="title"
+      class="form-control"
+      id="title"
+      formControlName="title"
+      required
+      placeholder="Write your title:"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="body" class="form-label">Body:</label>
+    <textarea
+      type="body"
+      class="form-control"
+      id="body"
+      cols="30"
+      rows="10"
+      required
+      placeholder="Write your post:"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+    Submit
+  </button>
 </form>
