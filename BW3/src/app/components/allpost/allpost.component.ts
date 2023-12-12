@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./allpost.component.scss'],
 })
 export class AllpostComponent implements OnInit {
-  posts: Post[] | undefined;
+  posts: Post[] = [];
   // auth!: AuthData[];
   sub!: Subscription;
   @Input() post!: Post;
@@ -44,6 +44,13 @@ export class AllpostComponent implements OnInit {
     this.postSrv.getpostsingolo(id).subscribe((it) => {
       this.router.navigate([`/edit`, id]);
       console.log(it);
+    });
+  }
+
+  cancellapost(id: number) {
+    this.postSrv.removeFrompost(id).subscribe((risultato) => {
+      console.log('cancellato: ' + id);
+      this.posts = this.posts.filter((post) => post.id !== id);
     });
   }
 }
