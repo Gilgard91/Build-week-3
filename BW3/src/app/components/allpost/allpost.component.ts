@@ -24,7 +24,7 @@ export class AllpostComponent implements OnInit {
 
   ngOnInit(): void {
     const userId = this.authSrv.getuserid();
-    return this.get(userId);
+    this.get(userId!);
   }
 
   get(userId: number) {
@@ -37,6 +37,12 @@ export class AllpostComponent implements OnInit {
   singlepost(id: number) {
     this.postSrv.getpostsingolo(id).subscribe((it) => {
       this.router.navigate([`/posts`, id]);
+      console.log(it);
+    });
+  }
+  modifyPost(id: number) {
+    this.postSrv.getpostsingolo(id).subscribe((it) => {
+      this.router.navigate([`/edit`, id]);
       console.log(it);
     });
   }

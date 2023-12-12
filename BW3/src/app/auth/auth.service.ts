@@ -17,7 +17,14 @@ export class AuthService {
   utente!: AuthData;
   constructor(private http: HttpClient, private router: Router) {}
   getuserid() {
-    return this.utente.user.id;
+    const user = localStorage.getItem('user');
+    if (!user) {
+      console.log('user non esistente');
+      return;
+    }
+    const userData: AuthData = JSON.parse(user);
+
+    return userData.user.id;
   }
   login(data: { email: string; password: string }) {
     return this.http.post<AuthData>(`${this.apiURL}/login`, data).pipe(

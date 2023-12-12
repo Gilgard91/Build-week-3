@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="text-center mt-5">Iscriviti</h1>
+  <form [formGroup]="modifyPostForm" (click)="onEdit()">
+    <div class="mb-3">
+      <label for="inputTitle" class="form-label">Titolo: </label>
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        id="inputTitle"
+        formControlName="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="inputBody" class="form-label">Body</label>
+      <input
+        type="text"
+        name="body"
+        class="form-control"
+        id="inputBody"
+        formControlName="body"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-danger"
+      [disabled]="!modifyPostForm.valid"
+    >
+      Conferma
+    </button>
+  </form>
+</div>

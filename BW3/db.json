@@ -13,15 +13,16 @@
       "nome": "paolo",
       "cognome": "paolo",
       "id": 2
+    },
+    {
+      "email": "harou@harou.com",
+      "password": "$2a$10$Lsih/f11XB5ygxj1H13tJ.GJmHnIWAJB.6y9rGvpqXXdJCCkQ.Btq",
+      "nome": "Abderrahmane",
+      "cognome": "Harouane",
+      "id": 3
     }
   ],
   "posts": [
-    {
-      "userId": 1,
-      "id": 1,
-      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-    },
     {
       "userId": 1,
       "id": 2,
@@ -77,22 +78,22 @@
       "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
     },
     {
+      "title": "Ciao",
+      "body": "Sono Arrabbiato",
       "userId": 2,
-      "id": 11,
-      "title": "et ea vero quia laudantium autem",
-      "body": "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi"
+      "id": 11
     },
     {
       "userId": 2,
-      "id": 12,
-      "title": "in quibusdam tempore odit est dolorem",
-      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio"
+      "title": "ciaoooo",
+      "body": "sono",
+      "id": 12
     },
     {
-      "userId": 2,
-      "id": 13,
       "title": "dolorum ut in voluptas mollitia et saepe quo animi",
-      "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam"
+      "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam",
+      "userId": 2,
+      "id": 13
     },
     {
       "userId": 2,
@@ -317,33 +318,6 @@
       "body": "error suscipit maxime adipisci consequuntur recusandae\nvoluptas eligendi et est et voluptates\nquia distinctio ab amet quaerat molestiae et vitae\nadipisci impedit sequi nesciunt quis consectetur"
     },
     {
-      "post": {
-        "id": 51,
-        "userId": 1,
-        "title": "gatti",
-        "body": "piccoli, malefici"
-      },
-      "id": 51
-    },
-    {
-      "post": {
-        "id": 51,
-        "userId": 1,
-        "title": "cani ",
-        "body": "magnifici"
-      },
-      "id": 52
-    },
-    {
-      "post": {
-        "id": 51,
-        "userId": 1,
-        "title": "cani",
-        "body": "carini"
-      },
-      "id": 53
-    },
-    {
       "userId": 1,
       "title": "mirco",
       "body": "magnifico",
@@ -351,9 +325,20 @@
     },
     {
       "userId": 1,
-      "title": "ciaociao",
-      "body": "ciao",
+      "title": "Mirco",
+      "body": "Sono Il team leader",
       "id": 55
+    },
+    {
+      "title": "OOOOO",
+      "body": "Nuovo post",
+      "id": 56
+    },
+    {
+      "userId": 3,
+      "title": "Ciao",
+      "body": "Sono abderrahmane",
+      "id": 57
     }
   ]
 }
