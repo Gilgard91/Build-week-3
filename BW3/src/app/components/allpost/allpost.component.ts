@@ -24,7 +24,7 @@ export class AllpostComponent implements OnInit {
 
   ngOnInit(): void {
     const userId = this.authSrv.getuserid();
-    return this.get(userId);
+    this.get(userId!);
   }
 
   get(userId: number) {
