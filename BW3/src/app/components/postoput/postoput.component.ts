@@ -100,7 +100,7 @@ export class PostoputComponent implements OnInit {
       const title = this.form.value.title;
       const body = this.form.value.body;
 
-      this.postSrv.postmethod(userId, title, body).subscribe((response) => {
+      this.postSrv.postcreate(userId, title, body).subscribe(() => {
         this.loadPosts();
         this.form.reset();
       });
