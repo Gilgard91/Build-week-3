@@ -8,26 +8,21 @@
       "id": 1
     },
     {
-      "email": "harou@harou.com",
-      "password": "$2a$10$PoCfamFgFoFEqXOc5ADDGestCk37evxWzPI6bvu9XnH7e3aEdLHqK",
-      "nome": "Abderrahmane",
-      "cognome": "Harouane"
-    },
-    {
       "email": "paolo@paolo.com",
       "password": "$2a$10$.eEsKAg1WgTzYgmzpcStmOq68k5xBIBA71gam1BpvR7sk575Kxud.",
       "nome": "paolo",
       "cognome": "paolo",
       "id": 2
+    },
+    {
+      "email": "harou@harou.com",
+      "password": "$2a$10$Lsih/f11XB5ygxj1H13tJ.GJmHnIWAJB.6y9rGvpqXXdJCCkQ.Btq",
+      "nome": "Abderrahmane",
+      "cognome": "Harouane",
+      "id": 3
     }
   ],
   "posts": [
-    {
-      "title": "ooOOOOOO",
-      "body": "IIIIIIIIIIIIOOOOOOO",
-      "userId": 1,
-      "id": 1
-    },
     {
       "userId": 1,
       "id": 2,
@@ -360,6 +355,17 @@
       "title": "Mirco",
       "body": "Sono Il team leader",
       "id": 55
+    },
+    {
+      "title": "OOOOO",
+      "body": "Nuovo post",
+      "id": 56
+    },
+    {
+      "userId": 3,
+      "title": "Ciao",
+      "body": "Sono abderrahmane",
+      "id": 57
     }
   ]
 }
