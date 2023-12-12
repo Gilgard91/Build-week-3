@@ -1,12 +1,26 @@
-<div class="container">
-  <ng-container *ngIf="post; else nonTrovato">
-    <h1 class="text-center m-4">POST ATTIVO: {{ post.title }}</h1>
+<!-- <div class="container">
+  <ng-container class="" *ngIf="post; else nonTrovato">
+    <h1 class="text-center m-4">{{ post.title }}</h1>
     <p>{{ post.body }}</p>
   </ng-container>
+</div> -->
 
-  <a class="btn btn-primary" [routerLink]="['/posts']">Torna Indietro</a>
+<div class="container d-flex justify-content-center">
+  <ng-container class="" *ngIf="post; else nonTrovato">
+    <div class="card principaleCard">
+      <h5 class="card-header">{{ post.title }}</h5>
+      <div class="card-body partebody position-relative">
+        <p class="card-text">
+          {{ post.body }}
+        </p>
+        <p class="position-absolute datapost">{{ final }}</p>
+      </div>
+    </div>
+  </ng-container>
 </div>
-
+<a class="btn btn-primary precedente" [routerLink]="['/posts']"
+  >Torna Indietro</a
+>
 <ng-template #nonTrovato>
   <h1 class="text-center m-4">Post non trovato!</h1>
 </ng-template>
