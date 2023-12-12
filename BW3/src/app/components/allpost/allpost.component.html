@@ -2,7 +2,13 @@
   <div>
     <p>-{{ item.body }}</p>
     <br />
-    <button (click)="singlepost(item.id)">Guarda qui</button>
-    <button (click)="modifyPost(item.id)">Modifica qui</button>
+
+    <div>
+      <button class="btn btn-primary mx-2" (click)="singlepost(item.id)">
+        <i class="bi bi-search"></i>
+      </button>
+      <button (click)="modifyPost(item.id)">Modifica qui</button>
+      <button class="btn btn-danger mx-2"><i class="bi bi-trash"></i></button>
+    </div>
   </div>
 </div>

@@ -11,7 +11,13 @@
       "email": "harou@harou.com",
       "password": "$2a$10$PoCfamFgFoFEqXOc5ADDGestCk37evxWzPI6bvu9XnH7e3aEdLHqK",
       "nome": "Abderrahmane",
-      "cognome": "Harouane",
+      "cognome": "Harouane"
+    },
+    {
+      "email": "paolo@paolo.com",
+      "password": "$2a$10$.eEsKAg1WgTzYgmzpcStmOq68k5xBIBA71gam1BpvR7sk575Kxud.",
+      "nome": "paolo",
+      "cognome": "paolo",
       "id": 2
     }
   ],
