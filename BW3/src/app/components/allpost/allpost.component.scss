@@ -1,10 +1,22 @@
-#post {
-  width: 80%;
-  img {
-    width: 45px;
-    border-radius: 50%;
+.card {
+  height: 200px;
+  position: relative;
+  margin: 10px;
+  .card-button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
   }
-  #username-span {
-    font-weight: bold;
+  .card-title,
+  .card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .btn {
+    padding: 6px;
   }
 }

@@ -1,0 +1,31 @@
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  color: #0866ff;
+}
+hr {
+  color: #90949c;
+}
+.loginform {
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 7px 0 grey;
+}
+
+.presentazione {
+  width: 400px;
+}
+.grandediv {
+  margin-top: 140px;
+}
+.account {
+  background-color: #36a420;
+  color: white;
+}
+::placeholder {
+  color: #90949c;
+}

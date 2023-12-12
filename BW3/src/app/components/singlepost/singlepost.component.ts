@@ -10,6 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SinglepostComponent implements OnInit {
   post: Post | undefined;
+  date = new Date();
+  day = this.date.getDate();
+  month = this.date.getMonth() + 1;
+  year = this.date.getFullYear();
+  final = `${this.day}-${this.month}-${this.year}`;
 
   constructor(private route: ActivatedRoute, private postSrv: ServiceService) {}
 
@@ -21,17 +26,17 @@ export class SinglepostComponent implements OnInit {
         console.log(retrievedPost);
       });
     });
+    // console.log(this.datapost());
   }
 
-  // posts: any;
-  // constructor(private postSrv: ServiceService) {}
-
-  // ngOnInit(): void {
-  // const postid = this.postSrv.getpostid();
-  // this.single(postid);
-  // }
-
-  // single(id: number) {
-  //   this.posts = this.postSrv.getpostsingolo(id);
+  // datapost() {
+  //   const date = new Date();
+  //   const day = date.getDate();
+  //   const month = date.getMonth() + 1;
+  //   const year = date.getFullYear();
+  //   const final = `${day}-${month}-${year}`;
+  //   const spandate = document.querySelector('.dataspan') as HTMLSpanElement;
+  //   // return final
+  //   spandate.innerHTML = `${day}-${month}-${year}`;
   // }
 }

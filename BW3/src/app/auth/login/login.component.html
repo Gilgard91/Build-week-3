@@ -1,33 +1,52 @@
-<div class="container">
-  <form #form="ngForm" (ngSubmit)="accedi(form)">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        class="form-control"
-        ngModel
-      />
+<div class="container d-flex justify-content-around grandediv">
+  <div class="presentazione">
+    <h1><strong>PostLink</strong></h1>
+    <p class="fw-medium fs-5">
+      Collega, condividi, esplora - Benvenuto su PostLink, il luogo dove i tuoi
+      pensieri prendono vita. Connettiti con amici, scopri nuove storie e crea
+      legami significativi. La tua voce, i tuoi post, il tuo link al mondo.
+      Entra in PostLink e inizia a condividere il tuo viaggio oggi stesso!
+    </p>
+  </div>
+  <div class="loginform container">
+    <form #form="ngForm" (ngSubmit)="accedi(form)" class="mt-2 mb-2">
+      <div class="form-group w-100">
+        <!-- <label for="email">Email</label> -->
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+          class="form-control mb-3"
+          ngModel
+        />
+      </div>
+      <div class="form-group w-100">
+        <!-- <label for="password">Password</label> -->
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+          required
+          class="form-control"
+          ngModel
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary mt-3 w-100"
+        [disabled]="form.invalid"
+      >
+        Accedi
+      </button>
+    </form>
+    <hr />
+    <div class="d-flex justify-content-center mt-2">
+      <button class="btn account" (click)="creaaccount()">
+        Crea nuovo account
+      </button>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        required
-        class="form-control"
-        ngModel
-      />
-    </div>
-    <button
-      type="submit"
-      class="btn btn-primary mt-3"
-      [disabled]="form.invalid"
-    >
-      Accedi
-    </button>
-  </form>
+  </div>
 </div>

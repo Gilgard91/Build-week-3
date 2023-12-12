@@ -3,6 +3,7 @@ import { Post } from '../models/post';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +37,21 @@ export class ServiceService {
       title,
       body,
     });
+  }
+
+  removeFrompost(id: number) {
+    console.log('Removing from favorites. ID:', id);
+    const url = `${this.apiURL}/posts/${id}`;
+
+    return this.http.delete<Post>(url).pipe(
+      map((response) => {
+        console.log('Successfully removed from favorites:', response);
+        return response;
+      }),
+      catchError((error) => {
+        console.error('Error removing from favorites:', error);
+        throw error;
+      })
+    );
   }
 }
