@@ -318,33 +318,6 @@
       "body": "error suscipit maxime adipisci consequuntur recusandae\nvoluptas eligendi et est et voluptates\nquia distinctio ab amet quaerat molestiae et vitae\nadipisci impedit sequi nesciunt quis consectetur"
     },
     {
-      "post": {
-        "id": 51,
-        "userId": 1,
-        "title": "gatti",
-        "body": "piccoli, malefici"
-      },
-      "id": 51
-    },
-    {
-      "post": {
-        "id": 51,
-        "userId": 1,
-        "title": "cani ",
-        "body": "magnifici"
-      },
-      "id": 52
-    },
-    {
-      "post": {
-        "id": 51,
-        "userId": 1,
-        "title": "cani",
-        "body": "carini"
-      },
-      "id": 53
-    },
-    {
       "userId": 1,
       "title": "mirco",
       "body": "magnifico",
