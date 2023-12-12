@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Route } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth/auth.guard';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { SinglepostComponent } from './components/singlepost/singlepost.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { PostoputComponent } from './components/postoput/postoput.component';
 const routes: Route[] = [
   {
     path: '',
@@ -49,6 +51,7 @@ const routes: Route[] = [
     component: EditPostComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'newpost', component: PostoputComponent, canActivate: [AuthGuard] },
   {
     path: '**',
     redirectTo: '',
@@ -65,11 +68,13 @@ const routes: Route[] = [
     SinglepostComponent,
     ProfileComponent,
     EditPostComponent,
+    PostoputComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
   ],

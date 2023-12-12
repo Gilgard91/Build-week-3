@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid justify-content-between">    
+  <div class="container-fluid justify-content-between">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -35,10 +35,20 @@
             >Registrati</a
           >
         </li>
+        <li class="nav-item" *ngIf="utente">
+          <a
+            class="nav-link"
+            [routerLink]="['/newpost']"
+            routerLinkActive="active"
+            >NewPost</a
+          >
+        </li>
       </ul>
     </div>
-    <div>
-      <span class="me-3" *ngIf="utente">Ciao {{utente.user.nome}} {{utente.user.cognome}}</span>
+    <div *ngIf="utente">
+      <span class="me-3"
+        >Ciao {{ utente.user.nome }} {{ utente.user.cognome }}</span
+      >
       <button class="btn btn-danger" (click)="logout()">Logout</button>
     </div>
   </div>
