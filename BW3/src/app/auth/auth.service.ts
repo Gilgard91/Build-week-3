@@ -16,6 +16,14 @@ export class AuthService {
   user$ = this.authSubj.asObservable();
   utente!: AuthData;
   constructor(private http: HttpClient, private router: Router) {}
+  getUser() {
+    const user = localStorage.getItem('user');
+    if (!user) {
+      console.log('user non esistente');
+      return;
+    }
+    return JSON.parse(user);
+  }
   getuserid() {
     const user = localStorage.getItem('user');
     if (!user) {

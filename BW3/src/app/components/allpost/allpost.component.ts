@@ -15,6 +15,7 @@ export class AllpostComponent implements OnInit {
   posts: Post[] | undefined;
   // auth!: AuthData[];
   sub!: Subscription;
+  user!: AuthData;
   @Input() post!: Post;
   constructor(
     private postSrv: ServiceService,
@@ -25,6 +26,7 @@ export class AllpostComponent implements OnInit {
   ngOnInit(): void {
     const userId = this.authSrv.getuserid();
     this.get(userId!);
+    this.user = this.authSrv.getUser();
   }
 
   get(userId: number) {
