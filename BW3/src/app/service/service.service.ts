@@ -28,7 +28,7 @@ export class ServiceService {
   //     post,
   //   });
   // }
-  postmethod(userId: number, title: string, body: string): Observable<Post> {
+  postcreate(userId: number, title: string, body: string): Observable<Post> {
     return this.http.post<Post>(`${this.apiURL}/posts`, {
       userId,
       title,
