@@ -19,7 +19,12 @@ export class EditPostComponent implements OnInit {
     private postSrv: ServiceService,
     private route: ActivatedRoute,
     private authSrv: AuthService
-  ) {}
+  ) {
+    this.modifyPostForm = this.fb.group({
+      title: ['', Validators.required],
+      body: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((param: any) => {
