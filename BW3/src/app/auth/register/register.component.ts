@@ -14,9 +14,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   registra(form: NgForm) {
+    const data = {
+      nome: form.value.nome,
+      cognome: form.value.cognome,
+      immaginePrf:
+        form.value.immaginePrf === '' ? false : form.value.immaginePrf,
+      email: form.value.email,
+      password: form.value.password,
+    };
     console.log(form.value);
     try {
-      this.authSrv.register(form.value).subscribe();
+      this.authSrv.register(data).subscribe();
     } catch (error: any) {
       console.log(error);
       alert(error);

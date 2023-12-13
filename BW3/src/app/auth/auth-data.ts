@@ -5,6 +5,8 @@ export interface AuthData {
     email: string;
     nome: string;
     cognome: string;
-    immaginePrf: string;
+    immaginePrf: string | boolean;
+    genere: string;
+    impiego: string;
   };
 }

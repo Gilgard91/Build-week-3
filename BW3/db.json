@@ -39,6 +39,14 @@
       "cognome": "brown",
       "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "id": 4
+    },
+    {
+      "email": "qwerty@qwerty.com",
+      "password": "$2a$10$hLeDG5vG0aNB0AkiGFdO1.oFpsbqCCptZqHPjScMhsCI/0nGq6uyO",
+      "nome": "qwerty",
+      "cognome": "qwerty",
+      "immaginePrf": false,
+      "id": 5
     }
   ],
   "posts": [
@@ -355,20 +363,16 @@
       "comments": []
     },
     {
-      "userId": 5,
-      "id": 41,
-      "img": false,
       "title": "non est facere",
       "body": "molestias id nostrum\nexcepturi molestiae dolore omnis repellendus quaerat saepe\nconsectetur iste quaerat tenetur asperiores accusamus ex ut\nnam quidem est ducimus sunt debitis saepe",
-      "comments": []
+      "userId": 5,
+      "id": 41
     },
     {
-      "userId": 5,
-      "id": 42,
-      "img": false,
       "title": "commodi ullam sint et excepturi error explicabo praesentium voluptas",
       "body": "odio fugit voluptatum ducimus earum autem est incidunt voluptatem\nodit reiciendis aliquam sunt sequi nulla dolorem\nnon facere repellendus voluptates quia\nratione harum vitae ut",
-      "comments": []
+      "userId": 5,
+      "id": 42
     },
     {
       "userId": 5,
@@ -481,6 +485,12 @@
       "img": false,
       "id": 60,
       "comments": []
+    },
+    {
+      "userId": 3,
+      "title": "retyujhkjilò",
+      "body": "qwertyguhijo",
+      "id": 61
     }
   ]
 }
