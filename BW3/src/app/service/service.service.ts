@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs';
+import { Request } from '../models/request';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +12,16 @@ import { map, catchError } from 'rxjs';
 export class ServiceService {
   apiURL = environment.apiURL;
   single!: Post;
+  request!: Request;
   constructor(private http: HttpClient) {}
   getallPost() {
     return this.http.get<Post[]>(`${this.apiURL}/posts`);
   }
   getposts(userId: number) {
     return this.http.get<Post[]>(`${this.apiURL}/posts?userId=${userId}`);
+  }
+  getrequest() {
+    return this.http.get<Request[]>(`${this.apiURL}/request`);
   }
 
   getpostid() {
