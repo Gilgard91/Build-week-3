@@ -66,6 +66,7 @@ export class AuthService {
   register(data: {
     nome: string;
     cognome: string;
+    immaginePrf: string | boolean;
     email: string;
     password: string;
   }) {

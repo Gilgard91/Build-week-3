@@ -24,7 +24,7 @@ export class AllpostComponent implements OnInit {
   nome: string | undefined;
   cognome: string | undefined;
   email: string | undefined;
-  immaginePrf: string | undefined;
+  immaginePrf!: string | boolean;
 
   constructor(
     private postSrv: ServiceService,
@@ -48,7 +48,10 @@ export class AllpostComponent implements OnInit {
       this.nome = userData.user.nome;
       this.cognome = userData.user.cognome;
       this.email = userData.user.email;
-      this.immaginePrf = userData.user.immaginePrf;
+      this.immaginePrf = userData.user.immaginePrf
+        ? userData.user.immaginePrf
+        : 'https://images.unsplash.com/photo-1533794299596-8e62c88ff975?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+      console.log(this.immaginePrf);
     }
   }
 
@@ -98,5 +101,8 @@ export class AllpostComponent implements OnInit {
       console.log(error);
       alert(error);
     }
+  }
+  annulla() {
+    this.modify = false;
   }
 }
