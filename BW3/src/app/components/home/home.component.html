@@ -1,8 +1,87 @@
-<div class="mt-5">
-  <h1 class="text-center mb-3">Benvenuto nella Home</h1>
-  <div class="d-flex justify-content-center">
-    <button class="btn btn-success" (click)="postGenerali()">
-      Vai ai tuoi post<i class="bi bi-signpost-2 ms-2"></i>
-    </button>
+<div class="container mt-4 d-flex flex-wrap">
+  <div class="col-md-3" *ngFor="let item of posts">
+    <div class="card p-3">
+      <ng-container
+        *ngIf="modify === true && item.id === itemToModifyId; else standardView"
+      >
+        <form
+          class="h-100 d-flex flex-column justify-content-between"
+          [formGroup]="modifyPostForm"
+          (submit)="onEdit(item.id)"
+        >
+          <div>
+            <div class="input-div">
+              <label for="inputTitle" class="form-label">Titolo: </label>
+              <input
+                type="text"
+                name="title"
+                class="form-control"
+                id="inputTitle"
+                formControlName="title"
+              />
+            </div>
+            <div class="input-div">
+              <label for="inputBody" class="form-label">Body</label>
+              <input
+                type="text"
+                name="body"
+                class="form-control"
+                id="inputBody"
+                formControlName="body"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            id="modify-button"
+            class="btn btn-danger"
+            [disabled]="!modifyPostForm.valid"
+          >
+            Conferma
+          </button>
+        </form>
+      </ng-container>
+      <ng-template #standardView>
+        <div class="card-body">
+          <h4 class="card-title">{{ item.title }}</h4>
+          <p class="card-text">{{ item.body }}</p>
+        </div>
+        <div class="card-button text-end">
+          <ng-container
+            *ngIf="
+              hasFullAccess() || utente?.user?.id === item.userId;
+              else normaluser
+            "
+          >
+            <button
+              class="btn btn-outline-primary border-0 mx-1"
+              (click)="singlepost(item.id)"
+            >
+              <i class="bi bi-search"></i>
+            </button>
+            <button
+              class="btn btn-outline-primary border-0 mx-1"
+              (click)="modifyPost(item.id)"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button
+              class="btn btn-outline-danger border-0 mx-1"
+              (click)="cancellapost(item.id)"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+          </ng-container>
+          <ng-template #normaluser>
+            <button
+              class="btn btn-outline-primary border-0 mx-1"
+              (click)="singlepost(item.id)"
+            >
+              <i class="bi bi-search"></i>
+            </button>
+          </ng-template>
+        </div>
+      </ng-template>
+    </div>
   </div>
 </div>

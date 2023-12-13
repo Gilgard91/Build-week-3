@@ -12,7 +12,9 @@ export class ServiceService {
   apiURL = environment.apiURL;
   single!: Post;
   constructor(private http: HttpClient) {}
-
+  getallPost() {
+    return this.http.get<Post[]>(`${this.apiURL}/posts`);
+  }
   getposts(userId: number) {
     return this.http.get<Post[]>(`${this.apiURL}/posts?userId=${userId}`);
   }
