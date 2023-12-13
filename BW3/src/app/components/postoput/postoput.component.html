@@ -25,7 +25,7 @@
     <button type="submit" [disabled]="!form.valid">Submit</button>
   </div>
 </form> -->
-<form class="mt-5" [formGroup]="form" (ngSubmit)="Submit()">
+<form [formGroup]="form" (ngSubmit)="Submit(); deleteNewPostOp(false)">
   <div class="mb-3">
     <label for="title" class="form-label">Title:</label>
     <input
@@ -43,12 +43,21 @@
       class="form-control"
       id="body"
       cols="30"
-      rows="10"
+      rows="5"
       formControlName="body"
       placeholder="Write your post:"
     ></textarea>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
-    Submit
-  </button>
+  <div class="d-flex justify-content-between">
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+      Crea Post
+    </button>
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="deleteNewPostOp(false)"
+    >
+      Annulla
+    </button>
+  </div>
 </form>

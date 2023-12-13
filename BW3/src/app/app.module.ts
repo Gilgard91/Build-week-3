@@ -44,7 +44,6 @@ const routes: Route[] = [
     path: 'register',
     component: RegisterComponent,
   },
-  { path: 'newpost', component: PostoputComponent, canActivate: [AuthGuard] },
   { path: 'request', component: RequestComponent, canActivate: [AuthGuard] },
   {
     path: '**',

@@ -25,6 +25,7 @@ export class AllpostComponent implements OnInit {
   cognome: string | undefined;
   email: string | undefined;
   immaginePrf!: string | boolean;
+  newPost: Boolean = false;
 
   constructor(
     private postSrv: ServiceService,
@@ -104,5 +105,12 @@ export class AllpostComponent implements OnInit {
   }
   annulla() {
     this.modify = false;
+  }
+  setFalse(e: any) {
+    this.newPost = e;
+  }
+  writeNewPost() {
+    this.newPost = true;
+    scroll(0, 0);
   }
 }

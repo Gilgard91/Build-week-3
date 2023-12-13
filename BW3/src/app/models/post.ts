@@ -3,6 +3,8 @@ export interface Post {
   id: number;
   title: string;
   body: string;
+  img: string | boolean;
+  comments: [{ commenterId: number; id: number; body: string }];
   // date: string;
 }
 
