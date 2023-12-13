@@ -4,12 +4,14 @@
 
 body {
   background-color: #f0f2f5;
-  height: 100vh;
+  margin-bottom: calc(100vh - 100px)
 }
 footer {
-  background-color: rgb(27, 27, 27);
-
-  margin-left: 0;
-  margin-right: 0;
-  padding-inline: 0;
+  background-color: #242424; 
+  color: rgb(240, 240, 240);
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
