@@ -13,8 +13,12 @@ import { Router } from '@angular/router';
 })
 export class AllpostComponent implements OnInit {
   posts: Post[] = [];
-  // auth!: AuthData[];
+  auth!: AuthData[];
   sub!: Subscription;
+  nome: string | undefined;
+  cognome: string | undefined;
+  email: string | undefined;
+  immaginePrf: string | undefined;
   @Input() post!: Post;
   constructor(
     private postSrv: ServiceService,
@@ -25,6 +29,14 @@ export class AllpostComponent implements OnInit {
   ngOnInit(): void {
     const userId = this.authSrv.getuserid();
     this.get(userId!);
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+      const userData = JSON.parse(user);
+      this.nome = userData.user.nome;
+      this.cognome = userData.user.cognome;
+      this.email = userData.user.email;
+      this.immaginePrf = userData.user.immaginePrf;
+    }
   }
 
   get(userId: number) {

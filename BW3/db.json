@@ -5,7 +5,8 @@
       "password": "$2a$10$CnHugYQdngqbqhA4ur1K5u1B286xo3nwdQtiI1UgirAVVUE95uyyq",
       "nome": "mirco",
       "cognome": "orosio",
-      "id": 1
+      "id": 1,
+      "immaginePrf": "https://images.unsplash.com/photo-1701743805066-daf2a6c1d4d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8"
     },
     {
       "email": "paolo@paolo.com",
@@ -20,6 +21,14 @@
       "nome": "Abderrahmane",
       "cognome": "Harouane",
       "id": 3
+    },
+    {
+      "email": "david@gmail.com",
+      "password": "$2a$10$EufSMzsdTrQsXO9p9NTF.OVfxTQyG1ZAn./gib7r7vFp2I19R/Mqu",
+      "nome": "david",
+      "cognome": "brown",
+      "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "id": 4
     }
   ],
   "posts": [
@@ -207,6 +216,24 @@
       "title": "Ciao",
       "body": "Sono abderrahmane",
       "id": 57
+    },
+    {
+      "userId": 4,
+      "title": "ciao",
+      "body": "ciao",
+      "id": 58
+    },
+    {
+      "userId": 4,
+      "title": "oi",
+      "body": "oi",
+      "id": 59
+    },
+    {
+      "userId": 4,
+      "title": "hi",
+      "body": "hi",
+      "id": 60
     }
   ]
 }

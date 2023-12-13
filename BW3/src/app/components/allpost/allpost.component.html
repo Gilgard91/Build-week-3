@@ -1,16 +1,36 @@
 <div class="container mt-4 d-flex flex-wrap">
-  <div class="col-md-3"  *ngFor="let item of posts">
+  <div class="profilocard">
+    <img [src]="immaginePrf" class="imgPrf card-img-top" />
+    <div class="card-body">
+      <p class="card-text">{{ nome }}</p>
+      <p class="card-text">{{ cognome }}</p>
+      <p class="card-text">{{ email }}</p>
+    </div>
+  </div>
+
+  <div class="col-md-4" *ngFor="let item of posts">
     <div class="card p-3">
       <div class="card-body">
-        <h4 class="card-title">{{item.title}}</h4>
-        <p class="card-text">{{item.body}}</p>
+        <h4 class="card-title">{{ item.title }}</h4>
+        <p class="card-text">{{ item.body }}</p>
       </div>
       <div class="card-button text-end">
-        <button class="btn btn-outline-primary border-0 mx-1" (click)="singlepost(item.id)">
+        <button
+          class="btn btn-outline-primary border-0 mx-1"
+          (click)="singlepost(item.id)"
+        >
           <i class="bi bi-search"></i>
         </button>
-        <button class="btn btn-outline-primary border-0 mx-1" (click)="modifyPost(item.id)"><i class="bi bi-pencil-square"></i></button>
-        <button class="btn btn-outline-danger border-0 mx-1" (click)="cancellapost(item.id)">
+        <button
+          class="btn btn-outline-primary border-0 mx-1"
+          (click)="modifyPost(item.id)"
+        >
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button
+          class="btn btn-outline-danger border-0 mx-1"
+          (click)="cancellapost(item.id)"
+        >
           <i class="bi bi-trash"></i>
         </button>
       </div>
