@@ -1,0 +1,36 @@
+<div class="container divfuori">
+  <form #form="ngForm">
+    <div class="form-group">
+      <!-- <label for="password">Password</label> -->
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        class="form-control mb-4"
+        required
+        ngModel
+      />
+    </div>
+    <div class="form-group">
+      <!-- <label for="email">Email</label> -->
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+        class="form-control mb-4"
+        required
+        ngModel
+      />
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-primary mt-3"
+    >
+      Registrati
+    </button>
+  </form>
+</div>
