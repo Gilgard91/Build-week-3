@@ -1,0 +1,68 @@
+#profile-sec {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  width: 250px;
+}
+#profile-sec .profilocard {
+  position: relative;
+  top: 1rem;
+  width: 250px;
+  height: 350px;
+  border-radius: 10px;
+  background-color: white;
+}
+#profile-sec .profilocard .imgPrf {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  padding: 5px;
+}
+#profile-sec .profilocard .card-body {
+  padding: 5px;
+}
+#profile-sec .profilocard .card-body p span {
+  font-weight: bold;
+}
+
+.card {
+  height: 200px;
+  position: relative;
+  margin: 10px;
+}
+.card .card-button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.card .input-div label {
+  font-size: 0.8rem;
+}
+.card .input-div input {
+  height: 30px;
+}
+.card #modify-button {
+  width: 65px;
+  font-size: 10px;
+}
+.card .card-title,
+.card .card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card .btn {
+  padding: 6px;
+}
+
+i.far.fa-edit {
+  font-size: 70px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}/*# sourceMappingURL=allpost.component.css.map */
