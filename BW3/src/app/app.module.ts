@@ -50,7 +50,6 @@ const routes: Route[] = [
     path: 'password',
     component: ForgotComponent,
   },
-  { path: 'newpost', component: PostoputComponent, canActivate: [AuthGuard] },
   { path: 'request', component: RequestComponent, canActivate: [AuthGuard] },
   {
     path: '**',

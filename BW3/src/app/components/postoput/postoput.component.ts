@@ -55,11 +55,11 @@
 //     }
 //   }
 // }
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { ServiceService } from 'src/app/service/service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-postoput',
   templateUrl: './postoput.component.html',
@@ -69,8 +69,8 @@ export class PostoputComponent implements OnInit {
   posts: Post[] = [];
   user = localStorage.getItem('user');
   form: FormGroup;
+  @Output() setFalse = new EventEmitter<boolean>();
   // id = 51;
-
   constructor(private postSrv: ServiceService, private fb: FormBuilder) {
     this.form = this.fb.group({
       title: ['', Validators.required],
@@ -96,14 +96,22 @@ export class PostoputComponent implements OnInit {
   Submit() {
     if (this.user !== null) {
       const userData = JSON.parse(this.user);
-      const userId = userData.user.id;
-      const title = this.form.value.title;
-      const body = this.form.value.body;
 
-      this.postSrv.postcreate(userId, title, body).subscribe(() => {
+      const data = {
+        title: this.form.value.title,
+        body: this.form.value.body,
+        userId: userData.user.id,
+        comments: [],
+      };
+      this.postSrv.postcreate(data).subscribe(() => {
         this.loadPosts();
         this.form.reset();
+        window.location.reload();
       });
     }
+  }
+
+  deleteNewPostOp(bool: boolean) {
+    this.setFalse.emit(bool);
   }
 }

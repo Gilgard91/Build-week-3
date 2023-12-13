@@ -55,6 +55,12 @@
       "title": "ciao",
       "body": "miao",
       "id": 61
+    },
+    {
+      "userId": 3,
+      "title": "Ciaoo",
+      "body": "Richiesta",
+      "id": 1
     }
   ],
   "posts": [
@@ -339,9 +345,6 @@
       ]
     },
     {
-      "userId": 3,
-      "id": 23,
-      "img": false,
       "title": "maxime id vitae nihil numquam",
       "body": "veritatis unde neque eligendi\nquae quod architecto quo neque vitae\nest illo sit tempora doloremque fugit quod\net et vel beatae sequi ullam sed tenetur perspiciatis",
       "comments": [
@@ -350,7 +353,9 @@
           "id": 1,
           "body": "ciao"
         }
-      ]
+      ],
+      "userId": 3,
+      "id": 23
     },
     {
       "userId": 3,
@@ -805,6 +810,13 @@
       "id": 62,
       "comments": [],
       "img": false
+    },
+    {
+      "title": "naruto ",
+      "body": "uzumaki",
+      "userId": 3,
+      "comments": [],
+      "id": 63
     }
   ]
 }

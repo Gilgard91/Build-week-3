@@ -38,12 +38,21 @@ export class ServiceService {
   //     post,
   //   });
   // }
-  postcreate(userId: number, title: string, body: string): Observable<Post> {
-    return this.http.post<Post>(`${this.apiURL}/posts`, {
-      userId,
-      title,
-      body,
-    });
+  postcreate(data: {
+    userId: number;
+    title: string;
+    body: string;
+    comments: Comment[] | undefined;
+  }): Observable<Post> {
+    return this.http.post<Post>(`${this.apiURL}/posts`, data);
+  }
+
+  requestCreate(data: {
+    userId: number;
+    title: string;
+    body: string;
+  }): Observable<Request> {
+    return this.http.post<Request>(`${this.apiURL}/request`, data);
   }
 
   removeFrompost(id: number) {
