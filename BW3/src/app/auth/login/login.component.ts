@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
       (result) => {},
       (error) => {
         this.loginErr = true;
-        console.log(error);
       }
     );
     //  catch (err) {

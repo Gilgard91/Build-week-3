@@ -10,17 +10,18 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   constructor(private authSrv: AuthService, private router: Router) {}
-
+  registerErr: boolean = false;
   ngOnInit(): void {}
 
   registra(form: NgForm) {
     console.log(form.value);
-    try {
-      this.authSrv.register(form.value).subscribe();
-    } catch (error: any) {
-      console.log(error);
-      alert(error);
-      this.router.navigate(['/register']);
-    }
+
+    this.authSrv.register(form.value).subscribe(
+      (result) => {},
+      (error) => {
+        this.registerErr = true;
+        console.log('pippo lol ', error);
+      }
+    );
   }
 }

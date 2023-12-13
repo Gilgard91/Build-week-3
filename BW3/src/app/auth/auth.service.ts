@@ -18,6 +18,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
   // Error handler usato per il login
   private handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error);
@@ -28,6 +29,7 @@ export class AuthService {
         `Backend returned code ${error.status}, body was: `,
         error.error
       );
+      errorMessage = error.error;
     }
     // Return an observable with a user-facing error message.
     return throwError(
@@ -90,7 +92,8 @@ export class AuthService {
     return this.http.post(`${this.apiURL}/register`, data).pipe(
       tap(() => {
         this.router.navigate(['/login']), catchError(this.errors);
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
