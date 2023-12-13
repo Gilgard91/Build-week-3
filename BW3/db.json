@@ -39,6 +39,14 @@
       "cognome": "brown",
       "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "id": 4
+    },
+    {
+      "email": "giordano@hotmail.it",
+      "password": "$2a$10$AAcq07QWDj1uZxlVU3QA4O0K11rlpTlDBbtbwknJKzzvxnE1.mXVy",
+      "nome": "giordano",
+      "cognome": "zagatti",
+      "immaginePrf": "aaa",
+      "id": 5
     }
   ],
   "posts": [
@@ -355,12 +363,10 @@
       "comments": []
     },
     {
-      "userId": 5,
-      "id": 41,
-      "img": false,
       "title": "non est facere",
       "body": "molestias id nostrum\nexcepturi molestiae dolore omnis repellendus quaerat saepe\nconsectetur iste quaerat tenetur asperiores accusamus ex ut\nnam quidem est ducimus sunt debitis saepe",
-      "comments": []
+      "userId": 5,
+      "id": 41
     },
     {
       "userId": 5,
@@ -395,12 +401,10 @@
       "comments": []
     },
     {
-      "userId": 5,
-      "id": 46,
-      "img": false,
       "title": "aut quo modi neque nostrum ducimus",
       "body": "voluptatem quisquam iste\nvoluptatibus natus officiis facilis dolorem\nquis quas ipsam\nvel et voluptatum in aliquid",
-      "comments": []
+      "userId": 5,
+      "id": 46
     },
     {
       "userId": 5,
