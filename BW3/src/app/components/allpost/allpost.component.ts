@@ -14,7 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AllpostComponent implements OnInit {
   posts: Post[] = [];
-  // auth!: AuthData[];
+  auth!: AuthData[];
   sub!: Subscription;
   user!: AuthData;
   modify: Boolean = false;

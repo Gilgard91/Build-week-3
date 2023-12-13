@@ -10,10 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SinglepostComponent implements OnInit {
   post: Post | undefined;
-  date = new Date();
-  day = this.date.getDate();
-  month = this.date.getMonth() + 1;
-  year = this.date.getFullYear();
+  now = new Date();
+  day = this.now.getDate();
+  month = this.now.getMonth() + 1;
+  year = this.now.getFullYear();
   final = `${this.day}-${this.month}-${this.year}`;
 
   constructor(private route: ActivatedRoute, private postSrv: ServiceService) {}
@@ -21,6 +21,7 @@ export class SinglepostComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
       const id = +param['id'];
+      const date = `${this.day}-${this.month}-${this.year}`;
       this.postSrv.getpostsingolo(id).subscribe((retrievedPost) => {
         this.post = retrievedPost;
         console.log(retrievedPost);
