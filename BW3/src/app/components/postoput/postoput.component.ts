@@ -96,11 +96,14 @@ export class PostoputComponent implements OnInit {
   Submit() {
     if (this.user !== null) {
       const userData = JSON.parse(this.user);
-      const userId = userData.user.id;
-      const title = this.form.value.title;
-      const body = this.form.value.body;
 
-      this.postSrv.postcreate(userId, title, body).subscribe(() => {
+      const data = {
+        title: this.form.value.title,
+        body: this.form.value.body,
+        userId: userData.user.id,
+        comments: [],
+      };
+      this.postSrv.postcreate(data).subscribe(() => {
         this.loadPosts();
         this.form.reset();
         window.location.reload();

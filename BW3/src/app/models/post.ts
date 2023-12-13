@@ -1,10 +1,11 @@
+import { Comment } from './comment';
 export interface Post {
   userId: number;
   id: number;
   title: string;
   body: string;
   img: string | boolean;
-  comments: [{ commenterId: number; id: number; body: string }];
+  comments: Comment[];
   // date: string;
 }
 

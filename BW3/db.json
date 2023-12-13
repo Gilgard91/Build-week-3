@@ -57,7 +57,14 @@
       "id": 5
     }
   ],
-  "request": [],
+  "request": [
+    {
+      "userId": 3,
+      "title": "Ciaoo",
+      "body": "Richiesta",
+      "id": 1
+    }
+  ],
   "posts": [
     {
       "title": "qui est esse",
@@ -312,20 +319,6 @@
       ]
     },
     {
-      "title": "ciaoo",
-      "body": "sadfghjk",
-      "userId": 3,
-      "id": 21,
-      "img": false,
-      "comments": [
-        {
-          "commenterId": 4,
-          "id": 1,
-          "body": "ciao"
-        }
-      ]
-    },
-    {
       "userId": 3,
       "id": 22,
       "img": false,
@@ -340,18 +333,10 @@
       ]
     },
     {
-      "userId": 3,
-      "id": 23,
-      "img": false,
       "title": "maxime id vitae nihil numquam",
       "body": "veritatis unde neque eligendi\nquae quod architecto quo neque vitae\nest illo sit tempora doloremque fugit quod\net et vel beatae sequi ullam sed tenetur perspiciatis",
-      "comments": [
-        {
-          "commenterId": 4,
-          "id": 1,
-          "body": "ciao"
-        }
-      ]
+      "userId": 3,
+      "id": 23
     },
     {
       "userId": 3,
@@ -728,20 +713,6 @@
       ]
     },
     {
-      "userId": 3,
-      "title": "Ciao",
-      "img": false,
-      "body": "Sono abderrahmane",
-      "id": 57,
-      "comments": [
-        {
-          "commenterId": 4,
-          "id": 1,
-          "body": "ciao"
-        }
-      ]
-    },
-    {
       "userId": 4,
       "title": "ciao",
       "body": "ciao",
@@ -784,14 +755,6 @@
       ]
     },
     {
-      "userId": 3,
-      "title": "retyujhkjilò",
-      "body": "qwertyguhijo",
-      "id": 61,
-      "comments": [],
-      "img": false
-    },
-    {
       "userId": 4,
       "title": "ciao",
       "body": "miao",
@@ -808,28 +771,11 @@
       "img": false
     },
     {
+      "title": "naruto ",
+      "body": "uzumaki",
       "userId": 3,
-      "title": "Ciaooo",
-      "body": "Sono un grande",
+      "comments": [],
       "id": 63
-    },
-    {
-      "userId": 3,
-      "title": "Naruto",
-      "body": "settimo Hokage",
-      "id": 64
-    },
-    {
-      "userId": 3,
-      "title": "Minato",
-      "body": "Fulmine giallo di konoha",
-      "id": 65
-    },
-    {
-      "userId": 3,
-      "title": "Kakashi",
-      "body": "Ninja copiatore",
-      "id": 66
     }
   ]
 }

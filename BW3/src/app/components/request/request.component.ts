@@ -41,11 +41,13 @@ export class RequestComponent implements OnInit {
   Submit() {
     if (this.user !== null) {
       const userData = JSON.parse(this.user);
-      const userId = userData.user.id;
-      const title = this.form.value.title;
-      const body = this.form.value.body;
 
-      this.postSrv.postcreate(userId, title, body).subscribe((requestPost) => {
+      const data = {
+        userId: userData.user.id,
+        title: this.form.value.title,
+        body: this.form.value.body,
+      };
+      this.postSrv.requestCreate(data).subscribe((requestPost) => {
         console.log(requestPost);
 
         this.loadPosts();
