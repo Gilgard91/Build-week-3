@@ -16,9 +16,9 @@
       "impiego": "Full Stack Developer",
       "genere": "M",
       "nome": "paolo",
-      "immaginePrf": "https://images.unsplash.com/photo-1701743805066-daf2a6c1d4d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
       "cognome": "paolo",
-      "id": 2
+      "id": 2,
+      "immaginePrf": "https://images.unsplash.com/photo-1701743805066-daf2a6c1d4d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8"
     },
     {
       "email": "harou@harou.com",
@@ -37,11 +37,24 @@
       "genere": "M",
       "nome": "david",
       "cognome": "brown",
-      "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "id": 4
+      "id": 4,
+      "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "request": [],
+  "request": [
+    {
+      "userId": 4,
+      "title": "ciao",
+      "body": "miao",
+      "id": 61
+    },
+    {
+      "userId": 4,
+      "title": "ciao",
+      "body": "ciao",
+      "id": 62
+    }
+  ],
   "posts": [
     {
       "title": "qui est esse",
@@ -384,18 +397,6 @@
       "img": false,
       "id": 60,
       "comments": []
-    },
-    {
-      "userId": 4,
-      "title": "ciao",
-      "body": "miao",
-      "id": 61
-    },
-    {
-      "userId": 4,
-      "title": "ciao",
-      "body": "ciao",
-      "id": 62
     }
   ]
 }
