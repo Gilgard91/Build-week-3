@@ -26,6 +26,15 @@ export class ServiceService {
   putPost(id: number, data: { title: string; body: string }) {
     return this.http.put<Post>(`${this.apiURL}/posts/${id}`, data);
   }
+  patchProfile(
+    id: number,
+    body: { nome: string; cognome: string; email: string; immaginePrf: string }
+  ) {
+    return this.http.patch(`${this.apiURL}/users/${id}`, body);
+  }
+  getProfilo(id: number) {
+    return this.http.get(`${this.apiURL}/users/${id}`);
+  }
   // postmethod(post: Post): Observable<Post> {
   //   return this.http.post<Post>(`${this.apiURL}/posts`, {
   //     post,

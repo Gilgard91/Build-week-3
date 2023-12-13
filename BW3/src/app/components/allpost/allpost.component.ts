@@ -5,7 +5,12 @@ import { AuthData } from 'src/app/auth/auth-data';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-allpost',
@@ -18,13 +23,15 @@ export class AllpostComponent implements OnInit {
   sub!: Subscription;
   user!: AuthData;
   modify: Boolean = false;
+  modifyProfile: boolean = false;
   modifyPostForm!: FormGroup;
+  modifyProfileForm!: FormGroup;
   postToModify!: Post;
   itemToModifyId!: number;
-  nome: string | undefined;
-  cognome: string | undefined;
-  email: string | undefined;
-  immaginePrf: string | undefined;
+  nome!: string;
+  cognome!: string;
+  email!: string;
+  immaginePrf!: string;
 
   constructor(
     private postSrv: ServiceService,
@@ -44,11 +51,19 @@ export class AllpostComponent implements OnInit {
     this.user = this.authSrv.getUser();
     const user = localStorage.getItem('user');
     if (user !== null) {
-      const userData = JSON.parse(user);
-      this.nome = userData.user.nome;
-      this.cognome = userData.user.cognome;
-      this.email = userData.user.email;
-      this.immaginePrf = userData.user.immaginePrf;
+      this.postSrv.getProfilo(userId!).subscribe((data: any) => {
+        console.log('data: ', data);
+        this.nome = data.nome;
+        this.cognome = data.cognome;
+        this.email = data.email;
+        this.immaginePrf = data.immaginePrf;
+      });
+      // Il local storage non viene più utilizzato per leggere l'utente per via delle complicanze che si vengono a creare con la funzionalità di modifica dettagli utente
+      // const userData = JSON.parse(user);
+      // this.nome = userData.user.nome;
+      // this.cognome = userData.user.cognome;
+      // this.email = userData.user.email;
+      // this.immaginePrf = userData.user.immaginePrf;
     }
   }
 
@@ -77,6 +92,44 @@ export class AllpostComponent implements OnInit {
       });
       console.log(post);
     });
+  }
+
+  modifyProfileMethod() {
+    this.modifyProfile = !this.modifyProfile;
+    this.modifyProfileForm = new FormGroup({
+      nome: new FormControl(this.nome),
+      cognome: new FormControl(this.cognome),
+      email: new FormControl(this.email),
+      immaginePrf: new FormControl(this.immaginePrf),
+    });
+  }
+
+  onPatchProfile() {
+    const userId = this.authSrv.getuserid();
+    console.log(userId);
+    //raccolta dati form
+    let nameFormValue = this.modifyProfileForm.value.nome;
+    let surnameFormValue = this.modifyProfileForm.value.cognome;
+    let emailFormValue = this.modifyProfileForm.value.email;
+    let immaginePrfFormValue = this.modifyProfileForm.value.immaginePrf;
+
+    // cambio delle variabili con i dati del form
+    this.nome = nameFormValue;
+    this.cognome = surnameFormValue;
+    this.email = emailFormValue;
+    this.immaginePrf = immaginePrfFormValue;
+
+    this.postSrv
+      .patchProfile(userId!, {
+        nome: nameFormValue,
+        cognome: surnameFormValue,
+        email: emailFormValue,
+        immaginePrf: immaginePrfFormValue,
+      })
+      .subscribe((ris) => {
+        console.log(ris);
+      });
+    this.modifyProfile = !this.modifyProfile;
   }
 
   cancellapost(id: number) {
