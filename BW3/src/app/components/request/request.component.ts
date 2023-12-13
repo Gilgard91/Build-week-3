@@ -14,7 +14,7 @@ export class RequestComponent implements OnInit {
   requestPost!: request[];
   user = localStorage.getItem('user');
   form: FormGroup;
-  utente!: AuthData;
+  utente!: AuthData | null;
   constructor(private postSrv: ServiceService, private fb: FormBuilder) {
     this.form = this.fb.group({
       title: ['', Validators.required],
@@ -22,7 +22,21 @@ export class RequestComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadPosts();
+  }
+
+  loadPosts() {
+    if (this.user !== null) {
+      const userData = JSON.parse(this.user);
+      const userId = userData.user.id;
+      if (userId === 1) {
+        this.postSrv.getposts(userId).subscribe((data) => {
+          this.requestPost = data;
+        });
+      }
+    }
+  }
 
   Submit() {
     if (this.user !== null) {
@@ -33,8 +47,8 @@ export class RequestComponent implements OnInit {
 
       this.postSrv.postcreate(userId, title, body).subscribe((requestPost) => {
         console.log(requestPost);
-        this.requestPost = requestPost;
-        // this.loadPosts();
+
+        this.loadPosts();
         this.form.reset();
       });
     }
