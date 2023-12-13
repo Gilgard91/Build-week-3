@@ -21,6 +21,10 @@ export class AllpostComponent implements OnInit {
   modifyPostForm!: FormGroup;
   postToModify!: Post;
   itemToModifyId!: number;
+  nome: string | undefined;
+  cognome: string | undefined;
+  email: string | undefined;
+  immaginePrf: string | undefined;
 
   constructor(
     private postSrv: ServiceService,
@@ -38,6 +42,14 @@ export class AllpostComponent implements OnInit {
     const userId = this.authSrv.getuserid();
     this.get(userId!);
     this.user = this.authSrv.getUser();
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+      const userData = JSON.parse(user);
+      this.nome = userData.user.nome;
+      this.cognome = userData.user.cognome;
+      this.email = userData.user.email;
+      this.immaginePrf = userData.user.immaginePrf;
+    }
   }
 
   get(userId: number) {
