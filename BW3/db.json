@@ -41,6 +41,7 @@
       "id": 4
     }
   ],
+  "request": [],
   "posts": [
     {
       "title": "qui est esse",
@@ -383,6 +384,12 @@
       "img": false,
       "id": 60,
       "comments": []
+    },
+    {
+      "userId": 4,
+      "title": "ciao",
+      "body": "miao",
+      "id": 61
     }
   ]
 }

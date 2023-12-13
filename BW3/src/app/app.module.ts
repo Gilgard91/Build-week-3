@@ -15,6 +15,7 @@ import { SinglepostComponent } from './components/singlepost/singlepost.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { PostoputComponent } from './components/postoput/postoput.component';
+import { RequestComponent } from './components/request/request.component';
 const routes: Route[] = [
   {
     path: '',
@@ -44,6 +45,7 @@ const routes: Route[] = [
     component: RegisterComponent,
   },
   { path: 'newpost', component: PostoputComponent, canActivate: [AuthGuard] },
+  { path: 'request', component: RequestComponent, canActivate: [AuthGuard] },
   {
     path: '**',
     redirectTo: '',
@@ -60,6 +62,7 @@ const routes: Route[] = [
     SinglepostComponent,
     ProfileComponent,
     PostoputComponent,
+    RequestComponent,
   ],
   imports: [
     BrowserModule,
