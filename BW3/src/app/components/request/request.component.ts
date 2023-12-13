@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { request } from 'src/app/models/post';
 import { ServiceService } from 'src/app/service/service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthData } from 'src/app/auth/auth-data';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Request } from 'src/app/models/request';
 
 @Component({
   selector: 'app-request',
@@ -11,11 +11,16 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./request.component.scss'],
 })
 export class RequestComponent implements OnInit {
-  requestPost!: request[];
+  requestPost!: Request[];
   user = localStorage.getItem('user');
   form: FormGroup;
   utente!: AuthData | null;
-  constructor(private postSrv: ServiceService, private fb: FormBuilder) {
+
+  constructor(
+    private postSrv: ServiceService,
+    private fb: FormBuilder,
+    private authSrv: AuthService
+  ) {
     this.form = this.fb.group({
       title: ['', Validators.required],
       body: ['', Validators.required],
@@ -23,6 +28,10 @@ export class RequestComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authSrv.user$.subscribe((_user) => {
+      this.utente = _user;
+      console.log(this.utente);
+    });
     this.loadPosts();
   }
 
@@ -30,11 +39,10 @@ export class RequestComponent implements OnInit {
     if (this.user !== null) {
       const userData = JSON.parse(this.user);
       const userId = userData.user.id;
-      if (userId === 1) {
-        this.postSrv.getposts(userId).subscribe((data) => {
-          this.requestPost = data;
-        });
-      }
+
+      this.postSrv.getrequest().subscribe((data) => {
+        this.requestPost = data;
+      });
     }
   }
 

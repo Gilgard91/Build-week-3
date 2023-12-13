@@ -16,9 +16,9 @@
       "impiego": "Full Stack Developer",
       "genere": "M",
       "nome": "paolo",
-      "immaginePrf": "https://images.unsplash.com/photo-1701743805066-daf2a6c1d4d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
       "cognome": "paolo",
-      "id": 2
+      "id": 2,
+      "immaginePrf": "https://images.unsplash.com/photo-1701743805066-daf2a6c1d4d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8"
     },
     {
       "email": "harou@harou.com",
@@ -37,23 +37,15 @@
       "genere": "M",
       "nome": "david",
       "cognome": "brown",
-      "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "id": 4
+      "id": 4,
+      "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "email": "qwerty@qwerty.com",
-      "password": "$2a$10$hLeDG5vG0aNB0AkiGFdO1.oFpsbqCCptZqHPjScMhsCI/0nGq6uyO",
-      "nome": "qwerty",
-      "cognome": "qwerty",
-      "immaginePrf": false,
-      "id": 6
-    },
-    {
-      "email": "giordano@hotmail.it",
-      "password": "$2a$10$AAcq07QWDj1uZxlVU3QA4O0K11rlpTlDBbtbwknJKzzvxnE1.mXVy",
+      "email": "giordano@hotmail.com",
+      "password": "$2a$10$x49rvFlhkr8ZcdZYYFY53eMYitLRPDg51JAMFw4via08sMA4./ndG",
       "nome": "giordano",
       "cognome": "zagatti",
-      "immaginePrf": false,
+      "immaginePrf": "aaa",
       "id": 5
     }
   ],
@@ -63,6 +55,12 @@
       "title": "Ciaoo",
       "body": "Richiesta",
       "id": 1
+    },
+    {
+      "userId": 4,
+      "title": "ciao",
+      "body": "miao",
+      "id": 61
     }
   ],
   "posts": [
@@ -319,6 +317,20 @@
       ]
     },
     {
+      "title": "ciaoo",
+      "body": "sadfghjk",
+      "userId": 3,
+      "id": 21,
+      "img": false,
+      "comments": [
+        {
+          "commenterId": 4,
+          "id": 1,
+          "body": "ciao"
+        }
+      ]
+    },
+    {
       "userId": 3,
       "id": 22,
       "img": false,
@@ -336,7 +348,14 @@
       "title": "maxime id vitae nihil numquam",
       "body": "veritatis unde neque eligendi\nquae quod architecto quo neque vitae\nest illo sit tempora doloremque fugit quod\net et vel beatae sequi ullam sed tenetur perspiciatis",
       "userId": 3,
-      "id": 23
+      "id": 23,
+      "comments": [
+        {
+          "commenterId": 4,
+          "id": 1,
+          "body": "ciao"
+        }
+      ]
     },
     {
       "userId": 3,
@@ -713,6 +732,20 @@
       ]
     },
     {
+      "userId": 3,
+      "title": "Ciao",
+      "img": false,
+      "body": "Sono abderrahmane",
+      "id": 57,
+      "comments": [
+        {
+          "commenterId": 4,
+          "id": 1,
+          "body": "ciao"
+        }
+      ]
+    },
+    {
       "userId": 4,
       "title": "ciao",
       "body": "ciao",
@@ -753,6 +786,14 @@
           "body": "ciao"
         }
       ]
+    },
+    {
+      "userId": 3,
+      "title": "retyujhkjilò",
+      "body": "qwertyguhijo",
+      "id": 61,
+      "comments": [],
+      "img": false
     },
     {
       "userId": 4,

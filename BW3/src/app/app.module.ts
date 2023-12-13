@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { PostoputComponent } from './components/postoput/postoput.component';
 import { RequestComponent } from './components/request/request.component';
+import { FooterComponent } from './components/footer/footer.component';
 const routes: Route[] = [
   {
     path: '',
@@ -62,6 +63,7 @@ const routes: Route[] = [
     ProfileComponent,
     PostoputComponent,
     RequestComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

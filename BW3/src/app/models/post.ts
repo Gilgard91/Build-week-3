@@ -8,10 +8,3 @@ export interface Post {
   comments: Comment[];
   // date: string;
 }
-
-export interface request {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}

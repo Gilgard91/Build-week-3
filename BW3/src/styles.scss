@@ -4,4 +4,14 @@
 
 body {
   background-color: #f0f2f5;
+  margin-bottom: calc(100vh - 100px)
+}
+footer {
+  background-color: #242424; 
+  color: rgb(240, 240, 240);
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
