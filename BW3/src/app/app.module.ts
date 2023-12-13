@@ -14,7 +14,6 @@ import { AllpostComponent } from './components/allpost/allpost.component';
 import { SinglepostComponent } from './components/singlepost/singlepost.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TokenInterceptor } from './auth/token.interceptor';
-import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { PostoputComponent } from './components/postoput/postoput.component';
 const routes: Route[] = [
   {
@@ -44,11 +43,6 @@ const routes: Route[] = [
     path: 'register',
     component: RegisterComponent,
   },
-  {
-    path: 'edit/:id',
-    component: EditPostComponent,
-    canActivate: [AuthGuard],
-  },
   { path: 'newpost', component: PostoputComponent, canActivate: [AuthGuard] },
   {
     path: '**',
@@ -65,7 +59,6 @@ const routes: Route[] = [
     AllpostComponent,
     SinglepostComponent,
     ProfileComponent,
-    EditPostComponent,
     PostoputComponent,
   ],
   imports: [

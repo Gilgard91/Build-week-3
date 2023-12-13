@@ -5,6 +5,7 @@ import { AuthData } from 'src/app/auth/auth-data';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-allpost',
@@ -16,12 +17,22 @@ export class AllpostComponent implements OnInit {
   // auth!: AuthData[];
   sub!: Subscription;
   user!: AuthData;
-  @Input() post!: Post;
+  modify: Boolean = false;
+  modifyPostForm!: FormGroup;
+  postToModify!: Post;
+  itemToModifyId!: number;
+
   constructor(
     private postSrv: ServiceService,
     private authSrv: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.modifyPostForm = this.fb.group({
+      title: ['', Validators.required],
+      body: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
     const userId = this.authSrv.getuserid();
@@ -43,9 +54,16 @@ export class AllpostComponent implements OnInit {
     });
   }
   modifyPost(id: number) {
-    this.postSrv.getpostsingolo(id).subscribe((it) => {
-      this.router.navigate([`/edit`, id]);
-      console.log(it);
+    this.postSrv.getpostsingolo(id).subscribe((post) => {
+      // this.router.navigate([`/edit`, id]);
+      this.modify = true;
+      this.itemToModifyId = id;
+      this.postToModify = post;
+      this.modifyPostForm = this.fb.group({
+        title: [post.title, Validators.required],
+        body: [post.body, [Validators.required]],
+      });
+      console.log(post);
     });
   }
 
@@ -54,5 +72,19 @@ export class AllpostComponent implements OnInit {
       console.log('cancellato: ' + id);
       this.posts = this.posts.filter((post) => post.id !== id);
     });
+  }
+
+  onEdit(id: number) {
+    const data = {
+      title: this.modifyPostForm.controls['title'].value,
+      body: this.modifyPostForm.controls['body'].value,
+      userId: this.postToModify.userId,
+    };
+    try {
+      this.postSrv.putPost(id, data).subscribe(() => window.location.reload());
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
   }
 }

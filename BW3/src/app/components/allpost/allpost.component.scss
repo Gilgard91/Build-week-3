@@ -7,6 +7,18 @@
     bottom: 5px;
     right: 5px;
   }
+  .input-div {
+    label {
+      font-size: 0.8rem;
+    }
+    input {
+      height: 30px;
+    }
+  }
+  #modify-button {
+    width: 65px;
+    font-size: 10px;
+  }
   .card-title,
   .card-text {
     overflow: hidden;
