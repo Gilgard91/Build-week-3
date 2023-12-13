@@ -46,6 +46,14 @@
       "nome": "qwerty",
       "cognome": "qwerty",
       "immaginePrf": false,
+      "id": 6
+    },
+    {
+      "email": "giordano@hotmail.it",
+      "password": "$2a$10$AAcq07QWDj1uZxlVU3QA4O0K11rlpTlDBbtbwknJKzzvxnE1.mXVy",
+      "nome": "giordano",
+      "cognome": "zagatti",
+      "immaginePrf": false,
       "id": 5
     }
   ],
@@ -399,12 +407,10 @@
       "comments": []
     },
     {
-      "userId": 5,
-      "id": 46,
-      "img": false,
       "title": "aut quo modi neque nostrum ducimus",
       "body": "voluptatem quisquam iste\nvoluptatibus natus officiis facilis dolorem\nquis quas ipsam\nvel et voluptatum in aliquid",
-      "comments": []
+      "userId": 5,
+      "id": 46
     },
     {
       "userId": 5,
