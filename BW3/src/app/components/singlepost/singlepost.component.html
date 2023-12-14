@@ -1,5 +1,11 @@
 <div class="container d-flex justify-content-center">
-  <ng-container class="" *ngIf="post; else nonTrovato">
+  <ng-container
+    class=""
+    *ngIf="
+      post && modify === false && post.id !== itemToModifyId;
+      else modificato
+    "
+  >
     <div class="card principaleCard">
       <img [src]="post.img" class="card-img-top" alt="" />
 
@@ -28,14 +34,54 @@
         <p class="card-text">
           {{ post.body }}
         </p>
+        <button
+          class="btn btn-outline-primary border-0 mx-1"
+          (click)="modifyPost(post.id)"
+        >
+          <i class="bi bi-pencil-square"></i>
+        </button>
       </div>
     </div>
   </ng-container>
+  <ng-template #modificato>
+    <form
+      class="h-100 d-flex flex-column justify-content-between"
+      [formGroup]="modifyPostForm"
+      (submit)="onEdit(post.id)"
+    >
+      <div>
+        <div class="input-div">
+          <label for="inputTitle" class="form-label">Titolo: </label>
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            id="inputTitle"
+            formControlName="title"
+          />
+        </div>
+        <div class="input-div">
+          <label for="inputBody" class="form-label">Body</label>
+          <input
+            type="text"
+            name="body"
+            class="form-control"
+            id="inputBody"
+            formControlName="body"
+          />
+        </div>
+      </div>
+      <button
+        type="submit"
+        id="modify-button"
+        class="btn btn-danger"
+        [disabled]="!modifyPostForm.valid"
+      >
+        Conferma
+      </button>
+    </form>
+  </ng-template>
   <a class="btn btn-primary precedente" [routerLink]="['/posts']"
     >Torna Indietro</a
   >
 </div>
-
-<ng-template #nonTrovato>
-  <h1 class="text-center m-4">Post non trovato!</h1>
-</ng-template>

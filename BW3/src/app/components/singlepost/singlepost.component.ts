@@ -3,6 +3,12 @@ import { Post } from 'src/app/models/post';
 import { ServiceService } from 'src/app/service/service.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-singlepost',
@@ -10,19 +16,29 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./singlepost.component.scss'],
 })
 export class SinglepostComponent implements OnInit {
-  post: Post | undefined;
+  post!: Post;
   now = new Date();
   day = this.now.getDate();
   month = this.now.getMonth() + 1;
   year = this.now.getFullYear();
   final = `${this.day}-${this.month}-${this.year}`;
   allUsers!: any[];
+  modifyPostForm!: FormGroup;
+  modify: Boolean = false;
+  itemToModifyId!: number;
+  postToModify!: Post;
 
   constructor(
     private route: ActivatedRoute,
     private postSrv: ServiceService,
-    private authSrv: AuthService
-  ) {}
+    private authSrv: AuthService,
+    private fb: FormBuilder
+  ) {
+    this.modifyPostForm = this.fb.group({
+      title: ['', Validators.required],
+      body: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
     this.authSrv.getAllUser().subscribe((all) => {
@@ -31,13 +47,40 @@ export class SinglepostComponent implements OnInit {
     });
     this.route.params.subscribe((param) => {
       const id = +param['id'];
-      const date = `${this.day}-${this.month}-${this.year}`;
+      // const date = `${this.day}-${this.month}-${this.year}`;
       this.postSrv.getpostsingolo(id).subscribe((retrievedPost) => {
         this.post = retrievedPost;
         console.log(retrievedPost);
       });
     });
-    // console.log(this.datapost());
+  }
+  modifyPost(id: number) {
+    this.postSrv.getpostsingolo(id).subscribe((post) => {
+      // this.router.navigate([`/edit`, id]);
+      this.modify = true;
+      this.itemToModifyId = id;
+      this.postToModify = post;
+      this.modifyPostForm = this.fb.group({
+        title: [post.title, Validators.required],
+        body: [post.body, [Validators.required]],
+        img: [post.img],
+      });
+      console.log(post);
+    });
+  }
+  onEdit(id: number) {
+    const data = {
+      title: this.modifyPostForm.controls['title'].value,
+      body: this.modifyPostForm.controls['body'].value,
+      img: this.modifyPostForm.controls['img'].value,
+      userId: this.postToModify.userId,
+    };
+    try {
+      this.postSrv.putPost(id, data).subscribe(() => window.location.reload());
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
   }
 
   // datapost() {

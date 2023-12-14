@@ -45,9 +45,6 @@ export class HomeComponent implements OnInit {
     const userId = this.utente?.user?.id;
     return userId === 1;
   }
-  // postGenerali() {
-  //   this.router.navigate(['/posts']);
-  // }
 
   modifyPost(id: number) {
     this.postSrv.getpostsingolo(id).subscribe((post) => {
@@ -82,20 +79,5 @@ export class HomeComponent implements OnInit {
       this.posts = all;
       console.log(all);
     });
-  }
-
-  onEdit(id: number) {
-    const data = {
-      title: this.modifyPostForm.controls['title'].value,
-      body: this.modifyPostForm.controls['body'].value,
-      img: this.modifyPostForm.controls['img'].value,
-      userId: this.postToModify.userId,
-    };
-    try {
-      this.postSrv.putPost(id, data).subscribe(() => window.location.reload());
-    } catch (error) {
-      console.log(error);
-      alert(error);
-    }
   }
 }

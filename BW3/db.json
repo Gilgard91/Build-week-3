@@ -90,7 +90,7 @@
   ],
   "posts": [
     {
-      "title": "qui est esse",
+      "title": "qui est",
       "body": "i sint nihil reprehenderit dolor beatae ea dolores nequefugiat blanditiis voluptate porro vel nihil molestiae ut reiciendisqui aperiam non debitis possimus qui neque nisi nulla",
       "userId": 1,
       "id": 2,
@@ -698,7 +698,7 @@
       "img": ""
     },
     {
-      "title": "naruto ",
+      "title": "naruto hinata",
       "body": "uzumaki",
       "userId": 3,
       "comments": [],
@@ -712,14 +712,6 @@
       "comments": [],
       "img": "",
       "id": 64
-    },
-    {
-      "title": "ciaooo",
-      "body": "sono iooooo",
-      "userId": 3,
-      "comments": [],
-      "img": "",
-      "id": 65
     }
   ]
 }
