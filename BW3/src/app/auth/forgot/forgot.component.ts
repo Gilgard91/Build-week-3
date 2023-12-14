@@ -57,16 +57,14 @@ export class ForgotComponent implements OnInit {
     let email = this.form.value.email;
     console.log(this.user[0].id);
     console.log(this.user);
-    this.authSrv
-      .createNewPass(this.user[0].id, this.user, password, email)
-      .subscribe(
-        (resp) => {
-          console.log('password reimpostata: ', resp);
-          this.router.navigate(['/login']);
-        },
-        (error) => {
-          console.log('error durante il processo', error);
-        }
-      );
+    this.authSrv.createNewPass(this.user[0].id, password, email).subscribe(
+      (resp) => {
+        console.log('password reimpostata: ', resp);
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log('error durante il processo', error);
+      }
+    );
   }
 }

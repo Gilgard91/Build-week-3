@@ -45,27 +45,17 @@ export class AuthService {
     }
     return JSON.parse(user);
   }
-
+  //si va a prendere lo user tramite l'email nella forgot component
   getUserEmail(email: string) {
     return this.http.get<AuthData>(`${this.apiURL}/users?email=${email}`);
   }
+  //cambiamento password
 
-  createNewPass(
-    id: number,
-    data: {
-      nome: string;
-      cognome: string;
-      immaginePrf: string | boolean;
-      email: string;
-      password: string;
-    },
-    password: string,
-    email: string
-  ) {
-    console.log(id, data);
+  createNewPass(id: number, password: string, email: string) {
+    console.log(id);
     return this.http.patch(`${this.apiURL}/users/${id}`, {
       password,
-      data,
+
       email,
     });
   }

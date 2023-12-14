@@ -31,49 +31,18 @@
       "immaginePrf": "https://images.unsplash.com/photo-1701743805066-daf2a6c1d4d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8"
     },
     {
-      "password": "$2a$10$rSuVsXKDp6BMCVTvnTnW0ezK3fkhoygqGWRztMckXtELdEuIGws7K",
-      "data": [
-        {
-          "password": "$2a$10$8bYtSHgrV77jnLBr.HaNuenDbCGZ5S0u.oU077YCUNidRTnT8WkSu",
-          "data": [
-            {
-              "password": "$2a$10$4qupmuIoo1kza2jxUdyGcebN2k4XQQFKq7moDA9hOXNq2rtbOudYy",
-              "data": [
-                {
-                  "0": {
-                    "email": "david@gmail.com",
-                    "password": "$2a$10$EufSMzsdTrQsXO9p9NTF.OVfxTQyG1ZAn./gib7r7vFp2I19R/Mqu",
-                    "impiego": "Full Stack Developer",
-                    "genere": "M",
-                    "nome": "david",
-                    "cognome": "brown",
-                    "id": 4,
-                    "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  },
-                  "email": "david@gmail.com",
-                  "password": "$2a$10$EufSMzsdTrQsXO9p9NTF.OVfxTQyG1ZAn./gib7r7vFp2I19R/Mqu",
-                  "impiego": "Full Stack Developer",
-                  "genere": "M",
-                  "nome": "david",
-                  "cognome": "brown",
-                  "id": 4,
-                  "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                }
-              ],
-              "email": "david@gmail.com",
-              "id": 4
-            }
-          ],
-          "email": "david@gmail.com",
-          "id": 4
-        }
-      ],
       "email": "david@gmail.com",
-      "id": 4
+      "password": "$2a$10$yg2oT7TY/Eaj2taNmdahpesJFDv0ecDDXYQYJP6v5i47EVSOr1DOK",
+      "impiego": "Full Stack Developer",
+      "genere": "M",
+      "nome": "david",
+      "cognome": "brown",
+      "id": 4,
+      "immaginePrf": "https://images.unsplash.com/photo-1702276125956-18295ebdb086?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "email": "giordano@hotmail.com",
-      "password": "$2a$10$x49rvFlhkr8ZcdZYYFY53eMYitLRPDg51JAMFw4via08sMA4./ndG",
+      "password": "$2a$10$MJ2FjltTpcMgEGbJ3sMjD.BV7DpSDYiu4h4NFEqfUy2JR0G9BPr7e",
       "nome": "giordano",
       "cognome": "zagatti",
       "immaginePrf": "aaa",
