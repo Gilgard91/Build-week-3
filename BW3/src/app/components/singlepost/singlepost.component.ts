@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { ServiceService } from 'src/app/service/service.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-singlepost',
@@ -15,10 +16,19 @@ export class SinglepostComponent implements OnInit {
   month = this.now.getMonth() + 1;
   year = this.now.getFullYear();
   final = `${this.day}-${this.month}-${this.year}`;
+  allUsers!: any[];
 
-  constructor(private route: ActivatedRoute, private postSrv: ServiceService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private postSrv: ServiceService,
+    private authSrv: AuthService
+  ) {}
 
   ngOnInit(): void {
+    this.authSrv.getAllUser().subscribe((all) => {
+      this.allUsers = all;
+      console.log(this.allUsers);
+    });
     this.route.params.subscribe((param) => {
       const id = +param['id'];
       const date = `${this.day}-${this.month}-${this.year}`;

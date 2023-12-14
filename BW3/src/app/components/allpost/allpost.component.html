@@ -36,6 +36,17 @@
           />
         </div>
         <div class="mb-1">
+          <label for="impiego" class="form-label"
+            ><p class="h5 mb-0 mt-2">Professione:</p></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="impiego"
+            formControlName="impiego"
+          />
+        </div>
+        <div class="mb-1">
           <label for="email" class="form-label"
             ><p class="h5 mb-0 mt-2">Email:</p></label
           >
@@ -185,12 +196,42 @@
                 <div class="h-100 d-flex flex-row align-items-center">
                   <img [src]="item.img" class="card-img-top img-post" />
                   <div class="card-body">
+                    <ng-container *ngFor="let user of allUsers">
+                      <div
+                        class="creator-of-post-section d-flex flex-row align-items-center gap-2 mb-2"
+                        *ngIf="user.id === item.userId"
+                      >
+                        <div class="d-flex flex-row align-items-center gap-2">
+                          <img [src]="user.immaginePrf" alt="" />
+                          <div class="d-flex flex-column">
+                            <span class="name-surname"
+                              >{{ user.nome }} {{ user.cognome }}</span
+                            ><span class="job">{{ user.impiego }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
                     <h4 class="card-title">{{ item.title }}</h4>
                     <p class="card-text">{{ item.body }}</p>
                   </div>
                 </div>
               </ng-container>
               <ng-template #standardPost>
+                <ng-container *ngFor="let user of allUsers">
+                  <div *ngIf="user.id === item.userId">
+                    <div
+                      class="creator-of-post-section d-flex flex-row align-items-center gap-2"
+                    >
+                      <img [src]="user.immaginePrf" alt="" />
+                      <div class="d-flex flex-column">
+                        <span class="name-surname"
+                          >{{ user.nome }} {{ user.cognome }}</span
+                        >
+                        <span class="job">{{ user.impiego }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
                 <div class="card-body">
                   <h4 class="card-title">{{ item.title }}</h4>
                   <p class="card-text">{{ item.body }}</p>

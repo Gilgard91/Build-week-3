@@ -11,10 +11,29 @@
   width: 500px;
   margin-top: 80px;
   height: fit-content;
+  img {
+    overflow: hidden;
+  }
 }
 .datapost {
   color: #90949c;
   margin-top: 4px;
   bottom: 0;
   right: 3px;
+}
+.creator-of-post-section {
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .name-surname {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .job {
+    font-size: 11px;
+  }
 }

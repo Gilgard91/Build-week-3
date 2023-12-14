@@ -21,6 +21,7 @@ export class AllpostComponent implements OnInit {
   posts: Post[] = [];
   auth!: AuthData[];
   sub!: Subscription;
+  allUsers!: any[];
   user!: AuthData;
   modify: Boolean = false;
   modifyProfile: boolean = false;
@@ -32,6 +33,7 @@ export class AllpostComponent implements OnInit {
   cognome!: string;
   email!: string;
   immaginePrf!: string;
+  impiego!: string;
   newPost: Boolean = false;
 
   constructor(
@@ -47,6 +49,10 @@ export class AllpostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authSrv.getAllUser().subscribe((all) => {
+      this.allUsers = all;
+      console.log(this.allUsers);
+    });
     const userId = this.authSrv.getuserid();
     this.get(userId!);
     this.user = this.authSrv.getUser();
@@ -60,6 +66,9 @@ export class AllpostComponent implements OnInit {
         this.immaginePrf = data.immaginePrf
           ? data.immaginePrf
           : 'https://images.unsplash.com/photo-1533794299596-8e62c88ff975?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
+        this.impiego = data.impiego;
+
         console.log(this.immaginePrf);
       });
       // Il local storage non viene più utilizzato per leggere l'utente per via delle complicanze che si vengono a creare con la funzionalità di modifica dettagli utente
@@ -106,6 +115,7 @@ export class AllpostComponent implements OnInit {
       cognome: new FormControl(this.cognome),
       email: new FormControl(this.email),
       immaginePrf: new FormControl(this.immaginePrf),
+      impiego: new FormControl(this.impiego),
     });
   }
 
@@ -117,12 +127,14 @@ export class AllpostComponent implements OnInit {
     let surnameFormValue = this.modifyProfileForm.value.cognome;
     let emailFormValue = this.modifyProfileForm.value.email;
     let immaginePrfFormValue = this.modifyProfileForm.value.immaginePrf;
+    let jobFormValue = this.modifyProfileForm.value.impiego;
 
     // cambio delle variabili con i dati del form
     this.nome = nameFormValue;
     this.cognome = surnameFormValue;
     this.email = emailFormValue;
     this.immaginePrf = immaginePrfFormValue;
+    this.impiego = jobFormValue;
 
     this.postSrv
       .patchProfile(userId!, {
@@ -130,6 +142,7 @@ export class AllpostComponent implements OnInit {
         cognome: surnameFormValue,
         email: emailFormValue,
         immaginePrf: immaginePrfFormValue,
+        impiego: jobFormValue,
       })
       .subscribe((ris) => {
         console.log(ris);
@@ -158,6 +171,7 @@ export class AllpostComponent implements OnInit {
       alert(error);
     }
   }
+
   annulla() {
     this.modify = false;
   }

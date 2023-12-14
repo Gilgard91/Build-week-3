@@ -5,7 +5,7 @@ export interface AuthData {
     email: string;
     nome: string;
     cognome: string;
-    immaginePrf: string | boolean;
+    immaginePrf: string;
     genere: string;
     impiego: string;
   };
