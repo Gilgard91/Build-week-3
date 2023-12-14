@@ -16,6 +16,7 @@ export class AuthService {
   private authSubj = new BehaviorSubject<null | AuthData>(null);
   user$ = this.authSubj.asObservable();
   utente!: AuthData;
+  allUsers!: AuthData[];
   constructor(private http: HttpClient, private router: Router) {}
   // Error handler usato per il login
   private handleError(error: HttpErrorResponse) {
@@ -36,6 +37,9 @@ export class AuthService {
     return throwError(
       () => new Error('Something bad happened; please try again late.')
     );
+  }
+  getAllUser() {
+    return this.http.get<any>(`${this.apiURL}/users`);
   }
   getUser() {
     const user = localStorage.getItem('user');

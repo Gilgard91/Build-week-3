@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs';
 import { Request } from '../models/request';
+import { AuthData } from '../auth/auth-data';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,12 @@ export class ServiceService {
     return this.http.get<Request[]>(`${this.apiURL}/request`);
   }
 
+  getUserOfPost(post: Post) {
+    const userId = post.userId;
+    console.log(userId);
+    return this.getProfilo(userId);
+  }
+
   getpostid() {
     return this.single.id;
   }
@@ -35,12 +42,19 @@ export class ServiceService {
   }
   patchProfile(
     id: number,
-    body: { nome: string; cognome: string; email: string; immaginePrf: string }
+    body: {
+      nome: string;
+      cognome: string;
+      email: string;
+      immaginePrf: string;
+      impiego: string;
+    }
   ) {
     return this.http.patch(`${this.apiURL}/users/${id}`, body);
   }
+
   getProfilo(id: number) {
-    return this.http.get(`${this.apiURL}/users/${id}`);
+    return this.http.get<AuthData>(`${this.apiURL}/users/${id}`);
   }
   // postmethod(post: Post): Observable<Post> {
   //   return this.http.post<Post>(`${this.apiURL}/posts`, {

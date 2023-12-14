@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
       immaginePrf:
         form.value.immaginePrf === '' ? false : form.value.immaginePrf,
       email: form.value.email,
+      impiego: form.value.impiego,
       password: form.value.password,
     };
     console.log(form.value);

@@ -1,16 +1,39 @@
 <div class="container d-flex justify-content-center">
   <ng-container class="" *ngIf="post; else nonTrovato">
     <div class="card principaleCard">
-      <h5 class="card-header">{{ post.title }}</h5>
+      <img [src]="post.img" class="card-img-top" alt="" />
+
       <div class="card-body partebody position-relative">
+        <div class="d-flex flex-row justify-content-between">
+          <ng-container *ngFor="let user of allUsers">
+            <div
+              class="creator-of-post-section d-flex flex-row align-items-center gap-2 mb-2"
+              *ngIf="user.id === post.userId"
+            >
+              <div class="d-flex flex-row align-items-center gap-2">
+                <img [src]="user.immaginePrf" alt="" />
+                <div class="d-flex flex-column">
+                  <span class="name-surname"
+                    >{{ user.nome }} {{ user.cognome }}</span
+                  ><span class="job">{{ user.impiego }}</span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <div>
+            <p class="datapost">{{ final }}</p>
+          </div>
+        </div>
+        <h5>{{ post.title }}</h5>
         <p class="card-text">
           {{ post.body }}
         </p>
-        <p class="position-absolute datapost">{{ final }}</p>
       </div>
     </div>
   </ng-container>
-  <a class="btn btn-primary precedente" [routerLink]="['/posts']">Torna Indietro</a>
+  <a class="btn btn-primary precedente" [routerLink]="['/posts']"
+    >Torna Indietro</a
+  >
 </div>
 
 <ng-template #nonTrovato>

@@ -28,7 +28,7 @@
       "nome": "Abderrahmane",
       "cognome": "Harouane",
       "id": 3,
-      "immaginePrf": "https://images.unsplash.com/photo-1701743805066-daf2a6c1d4d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8"
+      "immaginePrf": "https://images.unsplash.com/photo-1594007759138-855170ec8dc0?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "email": "david@gmail.com",
@@ -46,6 +46,7 @@
       "nome": "giordano",
       "cognome": "zagatti",
       "immaginePrf": "aaa",
+      "impiego": "Full Stack Developer",
       "id": 5
     },
     {
@@ -53,8 +54,18 @@
       "password": "$2a$10$o0V5pkkeaNcudQVBX6uGhOu5QbzQMXvU9DHi9SXRWDWlAMUoe8atq",
       "nome": "daniel",
       "cognome": "rrapi",
+      "impiego": "Full Stack Developer",
       "immaginePrf": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2PTfK5LTmvP5fuAUWbFDuxmGaQn16ywrwJ2pEIdSgJs8YQ53QoBZ52_WX5cLdKDVs2ko",
       "id": 6
+    },
+    {
+      "email": "poiuy@qwerty",
+      "password": "$2a$10$b1K0VrONPLS9oLORaI7LueQTV2ZHN3aaQ627mEGrTUxmVsHROqdlm",
+      "nome": "poiuy",
+      "cognome": "qwerty",
+      "immaginePrf": "https://images.unsplash.com/photo-1702429506966-5c8afe9b3c26?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3NHx8fGVufDB8fHx8fA%3D%3D",
+      "impiego": "elettricista",
+      "id": 7
     }
   ],
   "request": [
