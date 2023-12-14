@@ -3,6 +3,7 @@ import { Post } from 'src/app/models/post';
 import { ServiceService } from 'src/app/service/service.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { AuthData } from 'src/app/auth/auth-data';
 import {
   FormBuilder,
   FormControl,
@@ -27,6 +28,7 @@ export class SinglepostComponent implements OnInit {
   modify: Boolean = false;
   itemToModifyId!: number;
   postToModify!: Post;
+  utente!: AuthData | null;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +40,10 @@ export class SinglepostComponent implements OnInit {
       title: ['', Validators.required],
       body: ['', [Validators.required]],
     });
+  }
+  hasFullAccess(): boolean {
+    const userId = this.utente?.user?.id;
+    return userId === 1;
   }
 
   ngOnInit(): void {
@@ -52,6 +58,9 @@ export class SinglepostComponent implements OnInit {
         this.post = retrievedPost;
         console.log(retrievedPost);
       });
+    });
+    this.authSrv.user$.subscribe((_user) => {
+      this.utente = _user;
     });
   }
   modifyPost(id: number) {

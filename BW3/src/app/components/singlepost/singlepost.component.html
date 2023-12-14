@@ -34,12 +34,18 @@
         <p class="card-text">
           {{ post.body }}
         </p>
-        <button
-          class="btn btn-outline-primary border-0 mx-1"
-          (click)="modifyPost(post.id)"
-        >
-          <i class="bi bi-pencil-square"></i>
-        </button>
+        <div class="card-button text-end divbottone">
+          <ng-container
+            *ngIf="utente?.user?.id === post.userId || hasFullAccess()"
+          >
+            <button
+              class="btn btn-outline-primary border-0 mx-1"
+              (click)="modifyPost(post.id)"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
+          </ng-container>
+        </div>
       </div>
     </div>
   </ng-container>
