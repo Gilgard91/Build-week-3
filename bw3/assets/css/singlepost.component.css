@@ -1,0 +1,17 @@
+.precedente {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.principaleCard {
+  width: 500px;
+  margin-top: 80px;
+}
+
+.datapost {
+  color: #90949c;
+  margin-top: 4px;
+  bottom: 0;
+  right: 3px;
+}/*# sourceMappingURL=singlepost.component.css.map */

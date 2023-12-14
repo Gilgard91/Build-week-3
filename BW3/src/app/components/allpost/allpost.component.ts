@@ -5,7 +5,12 @@ import { AuthData } from 'src/app/auth/auth-data';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-allpost',
@@ -18,13 +23,15 @@ export class AllpostComponent implements OnInit {
   sub!: Subscription;
   user!: AuthData;
   modify: Boolean = false;
+  modifyProfile: boolean = false;
   modifyPostForm!: FormGroup;
+  modifyProfileForm!: FormGroup;
   postToModify!: Post;
   itemToModifyId!: number;
-  nome: string | undefined;
-  cognome: string | undefined;
-  email: string | undefined;
-  immaginePrf!: string | boolean;
+  nome!: string;
+  cognome!: string;
+  email!: string;
+  immaginePrf!: string;
   newPost: Boolean = false;
 
   constructor(
@@ -45,14 +52,22 @@ export class AllpostComponent implements OnInit {
     this.user = this.authSrv.getUser();
     const user = localStorage.getItem('user');
     if (user !== null) {
-      const userData = JSON.parse(user);
-      this.nome = userData.user.nome;
-      this.cognome = userData.user.cognome;
-      this.email = userData.user.email;
-      this.immaginePrf = userData.user.immaginePrf
-        ? userData.user.immaginePrf
-        : 'https://images.unsplash.com/photo-1533794299596-8e62c88ff975?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-      console.log(this.immaginePrf);
+      this.postSrv.getProfilo(userId!).subscribe((data: any) => {
+        console.log('data: ', data);
+        this.nome = data.nome;
+        this.cognome = data.cognome;
+        this.email = data.email;
+        this.immaginePrf = data.immaginePrf
+          ? data.immaginePrf
+          : 'https://images.unsplash.com/photo-1533794299596-8e62c88ff975?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+        console.log(this.immaginePrf);
+      });
+      // Il local storage non viene più utilizzato per leggere l'utente per via delle complicanze che si vengono a creare con la funzionalità di modifica dettagli utente
+      // const userData = JSON.parse(user);
+      // this.nome = userData.user.nome;
+      // this.cognome = userData.user.cognome;
+      // this.email = userData.user.email;
+      // this.immaginePrf = userData.user.immaginePrf;
     }
   }
 
@@ -78,9 +93,48 @@ export class AllpostComponent implements OnInit {
       this.modifyPostForm = this.fb.group({
         title: [post.title, Validators.required],
         body: [post.body, [Validators.required]],
+        img: [post.img],
       });
       console.log(post);
     });
+  }
+
+  modifyProfileMethod() {
+    this.modifyProfile = !this.modifyProfile;
+    this.modifyProfileForm = new FormGroup({
+      nome: new FormControl(this.nome),
+      cognome: new FormControl(this.cognome),
+      email: new FormControl(this.email),
+      immaginePrf: new FormControl(this.immaginePrf),
+    });
+  }
+
+  onPatchProfile() {
+    const userId = this.authSrv.getuserid();
+    console.log(userId);
+    //raccolta dati form
+    let nameFormValue = this.modifyProfileForm.value.nome;
+    let surnameFormValue = this.modifyProfileForm.value.cognome;
+    let emailFormValue = this.modifyProfileForm.value.email;
+    let immaginePrfFormValue = this.modifyProfileForm.value.immaginePrf;
+
+    // cambio delle variabili con i dati del form
+    this.nome = nameFormValue;
+    this.cognome = surnameFormValue;
+    this.email = emailFormValue;
+    this.immaginePrf = immaginePrfFormValue;
+
+    this.postSrv
+      .patchProfile(userId!, {
+        nome: nameFormValue,
+        cognome: surnameFormValue,
+        email: emailFormValue,
+        immaginePrf: immaginePrfFormValue,
+      })
+      .subscribe((ris) => {
+        console.log(ris);
+      });
+    this.modifyProfile = !this.modifyProfile;
   }
 
   cancellapost(id: number) {
@@ -94,6 +148,7 @@ export class AllpostComponent implements OnInit {
     const data = {
       title: this.modifyPostForm.controls['title'].value,
       body: this.modifyPostForm.controls['body'].value,
+      img: this.modifyPostForm.controls['img'].value,
       userId: this.postToModify.userId,
     };
     try {

@@ -88,6 +88,7 @@ export class HomeComponent implements OnInit {
     const data = {
       title: this.modifyPostForm.controls['title'].value,
       body: this.modifyPostForm.controls['body'].value,
+      img: this.modifyPostForm.controls['img'].value,
       userId: this.postToModify.userId,
     };
     try {

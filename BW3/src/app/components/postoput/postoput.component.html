@@ -1,32 +1,5 @@
-<!-- <form (ngSubmit)="Submit()">
-  <div class="form-control">
-    <div formGroupName="postinfo">
-      <label for="title">title:</label>
-      <input
-        type="text"
-        name="title"
-        id="title"
-        [(ngModel)]="posts"
-        required
-      />
-
-      <br />
-      <br />
-      <label for="body">biografia: </label>
-      <textarea
-        id="body"
-        [(ngModel)]="post.body"
-        cols="30"
-        rows="10"
-        required
-      ></textarea>
-    </div>
-
-    <button type="submit" [disabled]="!form.valid">Submit</button>
-  </div>
-</form> -->
-<form [formGroup]="form" (ngSubmit)="Submit(); deleteNewPostOp(false)">
-  <div class="mb-3">
+<form [formGroup]="form" (ngSubmit)="Submit()">
+  <div>
     <label for="title" class="form-label">Title:</label>
     <input
       type="title"
@@ -34,6 +7,16 @@
       id="title"
       formControlName="title"
       placeholder="Write your title:"
+    />
+  </div>
+  <div class="input-div">
+    <label for="inputPhoto" class="form-label">Foto: </label>
+    <input
+      type="text"
+      name="img"
+      class="form-control"
+      id="inputPhoto"
+      formControlName="img"
     />
   </div>
   <div class="mb-3">

@@ -10,18 +10,24 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   constructor(private authSrv: AuthService, private router: Router) {}
-
+  loginErr: boolean = false;
   ngOnInit(): void {}
 
   accedi(form: NgForm) {
     console.log(form.value);
-    try {
-      this.authSrv.login(form.value).subscribe();
-    } catch (error) {
-      alert('Login errato!');
-      console.log(error);
-      this.router.navigate(['/login']);
-    }
+
+    this.authSrv.login(form.value).subscribe(
+      (result) => {},
+      (error) => {
+        this.loginErr = true;
+      }
+    );
+    //  catch (err) {
+    //   this.loginErr = true;
+    //   alert('Login errato!');
+    //   console.log(err);
+    //   this.router.navigate(['/login']);
+    // }
   }
   creaaccount() {
     this.router.navigate(['/register']);
