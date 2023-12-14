@@ -78,6 +78,7 @@ export class AllpostComponent implements OnInit {
       this.modifyPostForm = this.fb.group({
         title: [post.title, Validators.required],
         body: [post.body, [Validators.required]],
+        img: [post.img],
       });
       console.log(post);
     });
@@ -94,6 +95,7 @@ export class AllpostComponent implements OnInit {
     const data = {
       title: this.modifyPostForm.controls['title'].value,
       body: this.modifyPostForm.controls['body'].value,
+      img: this.modifyPostForm.controls['img'].value,
       userId: this.postToModify.userId,
     };
     try {

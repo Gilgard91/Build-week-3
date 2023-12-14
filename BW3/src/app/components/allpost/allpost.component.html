@@ -22,14 +22,14 @@
   <div class="container mt-4 d-flex">
     <div class="row">
       <ng-container *ngIf="newPost">
-        <div class="col-12 mb-5">
+        <div class="col-12">
           <app-postoput (setFalse)="setFalse($event)"></app-postoput>
         </div>
       </ng-container>
       <div
         [ngStyle]="{
           height:
-            modify === true && item.id === itemToModifyId ? '320px' : 'auto'
+            modify === true && item.id === itemToModifyId ? '400px' : 'auto'
         }"
         *ngFor="let item of posts"
       >
@@ -45,7 +45,7 @@
               [ngStyle]="{
                 height:
                   modify === true && item.id === itemToModifyId
-                    ? '300px'
+                    ? '370px'
                     : 'auto'
               }"
             >
@@ -63,6 +63,16 @@
                       class="form-control"
                       id="inputTitle"
                       formControlName="title"
+                    />
+                  </div>
+                  <div class="input-div">
+                    <label for="inputPhoto" class="form-label">Foto: </label>
+                    <input
+                      type="text"
+                      name="img"
+                      class="form-control"
+                      id="inputPhoto"
+                      formControlName="img"
                     />
                   </div>
                   <div class="input-div">

@@ -30,8 +30,8 @@ export class ServiceService {
   getpostsingolo(id: number) {
     return this.http.get<Post>(`${this.apiURL}/posts/${id}`);
   }
-  putPost(id: number, data: { title: string; body: string }) {
-    return this.http.put<Post>(`${this.apiURL}/posts/${id}`, data);
+  putPost(id: number, data: { title: string; body: string; img: string }) {
+    return this.http.patch<Post>(`${this.apiURL}/posts/${id}`, data);
   }
   // postmethod(post: Post): Observable<Post> {
   //   return this.http.post<Post>(`${this.apiURL}/posts`, {
@@ -43,6 +43,7 @@ export class ServiceService {
     title: string;
     body: string;
     comments: Comment[] | undefined;
+    img: string;
   }): Observable<Post> {
     return this.http.post<Post>(`${this.apiURL}/posts`, data);
   }

@@ -15,6 +15,7 @@ export class RequestComponent implements OnInit {
   user = localStorage.getItem('user');
   form: FormGroup;
   utente!: AuthData | null;
+  userRequest!: number;
 
   constructor(
     private postSrv: ServiceService,

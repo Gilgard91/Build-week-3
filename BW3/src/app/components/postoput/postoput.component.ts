@@ -75,6 +75,7 @@ export class PostoputComponent implements OnInit {
     this.form = this.fb.group({
       title: ['', Validators.required],
       body: ['', Validators.required],
+      img: [''],
     });
   }
 
@@ -102,6 +103,7 @@ export class PostoputComponent implements OnInit {
         body: this.form.value.body,
         userId: userData.user.id,
         comments: [],
+        img: this.form.value.img,
       };
       this.postSrv.postcreate(data).subscribe(() => {
         this.loadPosts();

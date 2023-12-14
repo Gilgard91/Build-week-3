@@ -1,5 +1,5 @@
-<form class="mt-5" [formGroup]="form" (ngSubmit)="Submit()">
-  <div class="mb-3">
+<form [formGroup]="form" (ngSubmit)="Submit()">
+  <div>
     <label for="title" class="form-label">Title:</label>
     <input
       type="title"
@@ -7,6 +7,16 @@
       id="title"
       formControlName="title"
       placeholder="Write your title:"
+    />
+  </div>
+  <div class="input-div">
+    <label for="inputPhoto" class="form-label">Foto: </label>
+    <input
+      type="text"
+      name="img"
+      class="form-control"
+      id="inputPhoto"
+      formControlName="img"
     />
   </div>
   <div class="mb-3">
