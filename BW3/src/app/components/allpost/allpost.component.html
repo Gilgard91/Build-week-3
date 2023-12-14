@@ -6,6 +6,12 @@
       <img [src]="immaginePrf" class="mx-auto imgPrf card-img-top" />
       <div class="d-flex justify-content-between flex-column flex-grow-1">
         <div class="card-body d-flex flex-column justify-content-center gap-2">
+          <button
+            class="btn btn-outline-primary border-0 mx-1 position-absolute top-0 end-0 translate-middle"
+            (click)="modifyProfileMethod()"
+          >
+            <i class="bi bi-pencil-square"></i>
+          </button>
           <p class="card-text"><span>Nome: </span>{{ nome }}</p>
           <p class="card-text"><span>Cognome:</span> {{ cognome }}</p>
           <p class="card-text"><span>Email: </span>{{ email }}</p>
@@ -143,6 +149,54 @@
       </div>
     </div>
   </div>
+  <ng-template #modifyPrfl>
+    <div>
+      <form [formGroup]="modifyProfileForm">
+        <div class="mb-1">
+          <label for="profileUrl" class="form-label">URL Profilo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="profileUrl"
+            formControlName="immaginePrf"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="nome" class="form-label">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            formControlName="nome"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="cognome" class="form-label">Cognome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cognome"
+            formControlName="cognome"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+        </div>
+      </form>
+      <button class="btn btn-danger" (click)="modifyProfileMethod()">
+        Annulla
+      </button>
+      <button class="btn btn-success" (click)="onPatchProfile()">
+        Modifica
+      </button>
+    </div>
+  </ng-template>
 </div>
 <a (click)="writeNewPost()"
   ><i class="far fa-edit" style="color: #dc3545"></i

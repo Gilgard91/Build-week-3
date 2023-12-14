@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthData } from './auth-data';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { BehaviorSubject, throwError, tap, catchError } from 'rxjs';
@@ -16,6 +16,26 @@ export class AuthService {
   user$ = this.authSubj.asObservable();
   utente!: AuthData;
   constructor(private http: HttpClient, private router: Router) {}
+  // Error handler usato per il login
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.status === 0) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, body was: `,
+        error.error
+      );
+      errorMessage = error.error;
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(
+      () => new Error('Something bad happened; please try again late.')
+    );
+  }
   getUser() {
     const user = localStorage.getItem('user');
     if (!user) {
@@ -45,7 +65,7 @@ export class AuthService {
         console.log(this.user$);
         this.router.navigate(['/']);
       }),
-      catchError(this.errors)
+      catchError(this.handleError)
     );
   }
 
@@ -73,7 +93,8 @@ export class AuthService {
     return this.http.post(`${this.apiURL}/register`, data).pipe(
       tap(() => {
         this.router.navigate(['/login']), catchError(this.errors);
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 

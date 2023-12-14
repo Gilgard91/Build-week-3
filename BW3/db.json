@@ -47,6 +47,14 @@
       "cognome": "zagatti",
       "immaginePrf": "aaa",
       "id": 5
+    },
+    {
+      "email": "daniel@rrapi.com",
+      "password": "$2a$10$o0V5pkkeaNcudQVBX6uGhOu5QbzQMXvU9DHi9SXRWDWlAMUoe8atq",
+      "nome": "daniel",
+      "cognome": "rrapi",
+      "immaginePrf": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2PTfK5LTmvP5fuAUWbFDuxmGaQn16ywrwJ2pEIdSgJs8YQ53QoBZ52_WX5cLdKDVs2ko",
+      "id": 6
     }
   ],
   "request": [
