@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { BehaviorSubject, throwError, tap, catchError } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Password } from './password';
 
 @Injectable({
   providedIn: 'root',
