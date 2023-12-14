@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { BehaviorSubject, throwError, tap, catchError } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Password } from './password';
 
 @Injectable({
   providedIn: 'root',
@@ -44,6 +45,20 @@ export class AuthService {
     }
     return JSON.parse(user);
   }
+  //si va a prendere lo user tramite l'email nella forgot component
+  getUserEmail(email: string) {
+    return this.http.get<AuthData>(`${this.apiURL}/users?email=${email}`);
+  }
+  //cambiamento password
+
+  createNewPass(id: number, password: string, email: string) {
+    console.log(id);
+    return this.http.patch(`${this.apiURL}/users/${id}`, {
+      password,
+
+      email,
+    });
+  }
   getuserid() {
     const user = localStorage.getItem('user');
     if (!user) {
@@ -54,6 +69,7 @@ export class AuthService {
 
     return userData.user.id;
   }
+
   login(data: { email: string; password: string }) {
     return this.http.post<AuthData>(`${this.apiURL}/login`, data).pipe(
       tap((loggato) => {

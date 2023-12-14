@@ -17,6 +17,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
 import { PostoputComponent } from './components/postoput/postoput.component';
 import { RequestComponent } from './components/request/request.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ForgotComponent } from './auth/forgot/forgot.component';
 const routes: Route[] = [
   {
     path: '',
@@ -45,6 +46,10 @@ const routes: Route[] = [
     path: 'register',
     component: RegisterComponent,
   },
+  {
+    path: 'password',
+    component: ForgotComponent,
+  },
   { path: 'request', component: RequestComponent, canActivate: [AuthGuard] },
   {
     path: '**',
@@ -64,6 +69,7 @@ const routes: Route[] = [
     PostoputComponent,
     RequestComponent,
     FooterComponent,
+    ForgotComponent,
   ],
   imports: [
     BrowserModule,

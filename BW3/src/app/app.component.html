@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
-<div class="container" [ngStyle]="{'height': isHomePage || isProfile ? '' : 'calc(100% - 200px)'}">
+<div
+  class="container"
+  [ngStyle]="{ height: isHomePage || isProfile ? '' : 'calc(100% - 200px)' }"
+>
   <router-outlet></router-outlet>
 </div>
 <!-- <footer class="mt-5">
@@ -42,8 +45,11 @@
               <li>Audio and Subtitles</li>
               <li>Media Center</li>
               <li>Privacy</li>
-              <a style="text-decoration: none; color:rgb(240, 240, 240);"
-                routerLink="/request"><li>Contact Us</li></a>
+              <a
+                style="text-decoration: none; color: rgb(240, 240, 240)"
+                routerLink="/request"
+                ><li>Contact Us</li></a
+              >
             </ul>
           </div>
           <div class="col-3">

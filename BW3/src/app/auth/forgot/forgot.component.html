@@ -1,0 +1,77 @@
+<div class="container mt-5">
+  <div *ngIf="!modifyProfile; else modifyPrfl">
+    <h2 class="mb-3 text-center">Iserisci la tua email</h2>
+    <form [formGroup]="form" class="w-25 d-flex mx-auto flex-column">
+      <!-- <label for="email">Email</label> -->
+      <div>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          class="form-control mb-4"
+          formControlName="email"
+          required
+        />
+        <!-- <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="password"
+          class="form-control mb-4"
+          required
+          formControlName="password"
+        />
+        <input
+          type="confirmPassword"
+          name="confirmPassword"
+          id="confirmPassword"
+          placeholder="confirm password"
+          class="form-control mb-4"
+          required
+          formControlName="confirmPassword"
+        /> -->
+      </div>
+    </form>
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-primary mt-3 d-flex mx-auto"
+      (click)="getEmail()"
+    >
+      Invia
+    </button>
+  </div>
+  <ng-template #modifyPrfl>
+    <h2 class="mb-3 text-center">Iserisci la tua email</h2>
+    <form [formGroup]="formPassword" class="w-25 d-flex mx-auto flex-column">
+      <!-- <label for="email">Email</label> -->
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="password"
+        class="form-control mb-4"
+        required
+        formControlName="password"
+      />
+      <input
+        type="confirmPassword"
+        name="confirmPassword"
+        id="confirmPassword"
+        placeholder="confirm password"
+        class="form-control mb-4"
+        required
+        formControlName="confirmPassword"
+      />
+    </form>
+    <button
+      type="submit"
+      [disabled]="formPassword.invalid"
+      class="btn btn-primary mt-3 d-flex mx-auto"
+      (click)="changePass()"
+    >
+      Invia
+    </button>
+  </ng-template>
+</div>
