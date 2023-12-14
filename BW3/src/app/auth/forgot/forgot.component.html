@@ -1,36 +1,23 @@
-<div class="container divfuori">
-  <form #form="ngForm">
-    <div class="form-group">
-      <!-- <label for="password">Password</label> -->
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Password"
-        class="form-control mb-4"
-        required
-        ngModel
-      />
-    </div>
-    <div class="form-group">
-      <!-- <label for="email">Email</label> -->
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Email"
-        class="form-control mb-4"
-        required
-        ngModel
-      />
-    </div>
+<div class="container mt-5">
+  <h2 class="mb-3 text-center">Iserisci la tua email</h2>
+  <form #form="ngForm" class="w-25 d-flex mx-auto flex-column">
+    <!-- <label for="email">Email</label> -->
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Email"
+      class="form-control mb-4"
+      required
+      ngModel
+    />
 
     <button
       type="submit"
       [disabled]="form.invalid"
-      class="btn btn-primary mt-3"
+      class="btn btn-primary mt-3 d-flex mx-auto"
     >
-      Registrati
+      Invia
     </button>
   </form>
 </div>
