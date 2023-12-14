@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
@@ -15,10 +10,63 @@ import {
 })
 export class ForgotComponent implements OnInit {
   modifyProfile: boolean = false;
-  password!: string;
-  consfirmPassword!: string;
+  form!: FormGroup;
+  formPassword!: FormGroup;
+  user: any = {
+    id: '',
+    nome: '',
+    cognome: '',
+    immaginePrf: '',
+    email: '',
+    password: '',
+  };
 
-  constructor(private authSrv: AuthService, private router: Router) {}
+  constructor(
+    private authSrv: AuthService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      email: ['', [Validators.required]],
+    });
+    this.formPassword = this.fb.group({
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {}
+
+  getEmail() {
+    this.modifyProfile = !this.modifyProfile;
+
+    let email = this.form.value.email;
+
+    this.authSrv.getUserEmail(email).subscribe((response) => {
+      console.log(response);
+      this.user = response;
+    });
+  }
+
+  changePass() {
+    const password = this.formPassword.value.password;
+    const confirmPassword = this.formPassword.value.confirmPassword;
+    if (password !== confirmPassword) {
+      alert('Riprova');
+    }
+    let email = this.form.value.email;
+    console.log(this.user[0].id);
+    console.log(this.user);
+    this.authSrv
+      .createNewPass(this.user[0].id, this.user, password, email)
+      .subscribe(
+        (resp) => {
+          console.log('password reimpostata: ', resp);
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.log('error durante il processo', error);
+        }
+      );
+  }
 }

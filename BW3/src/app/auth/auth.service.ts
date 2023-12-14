@@ -45,6 +45,30 @@ export class AuthService {
     }
     return JSON.parse(user);
   }
+
+  getUserEmail(email: string) {
+    return this.http.get<AuthData>(`${this.apiURL}/users?email=${email}`);
+  }
+
+  createNewPass(
+    id: number,
+    data: {
+      nome: string;
+      cognome: string;
+      immaginePrf: string | boolean;
+      email: string;
+      password: string;
+    },
+    password: string,
+    email: string
+  ) {
+    console.log(id, data);
+    return this.http.patch(`${this.apiURL}/users/${id}`, {
+      password,
+      data,
+      email,
+    });
+  }
   getuserid() {
     const user = localStorage.getItem('user');
     if (!user) {
@@ -56,9 +80,6 @@ export class AuthService {
     return userData.user.id;
   }
 
-  changePass() {
-    return this.http.patch<AuthData>;
-  }
   login(data: { email: string; password: string }) {
     return this.http.post<AuthData>(`${this.apiURL}/login`, data).pipe(
       tap((loggato) => {
