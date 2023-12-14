@@ -10,7 +10,7 @@ hr {
   color: #90949c;
 }
 .loginform {
-  width: 300px;
+  width: 50%;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 7px 0 grey;
@@ -20,7 +20,7 @@ hr {
   width: 400px;
 }
 .grandediv {
-  margin-top: 140px;
+  height: calc(100vh - 24.5vh);
 }
 .account {
   background-color: #36a420;

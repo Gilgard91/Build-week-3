@@ -1,0 +1,19 @@
+.col-md-3 {
+    background-color: unset;
+    .card {
+        height: 150px;
+        background-color: white;
+        .card-body {
+            .card-title,
+            .card-text {
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        } 
+        .card-button {
+            height: 50px;
+        }
+    }
+}

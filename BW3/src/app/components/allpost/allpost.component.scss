@@ -25,6 +25,40 @@
     background-color: white;
   }
 }
+.icon_container {  
+  .bi {      
+      font-size: 25px;
+      &-facebook {
+          color: #0866ff;
+      }
+      &-youtube {
+          color: #ff0000;
+      }
+  }
+  .instagram {      
+      position: relative;
+      width: 27px;
+      height: 27px;            
+      top: 6px;
+      border-radius: 20%;
+      color: white;
+      background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);            
+      &:before {
+          border-radius: 20%;
+      }
+      &:after {
+          width: 11px;
+          height: 11px;
+          border-radius: 50%;
+      }
+      .bi-instagram {
+          position: absolute;
+          top: -6px;
+          left: 0.5px;
+          margin: 0;
+      }
+  }
+}
 @media screen and (min-width: 768px) {
   #profile-sec {
     height: 100vh;

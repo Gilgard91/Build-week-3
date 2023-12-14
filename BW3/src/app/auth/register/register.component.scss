@@ -1,12 +1,13 @@
 .divfuori {
-  width: 400px;
-  background-color: white;
-  margin-top: 100px;
-  border-radius: 10px;
-  box-shadow: 0 0 7px 0 grey;
+  width: 50%;
+  height: calc(100vh - 24.5vh);
 }
 form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 7px 0 grey;
   padding: 24px;
+  width: 100%;
 }
 ::placeholder {
   color: #90949c;

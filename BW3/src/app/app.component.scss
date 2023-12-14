@@ -1,0 +1,41 @@
+footer {
+    margin-top: 15px;
+    .icon_container {
+        padding-left: 1.5rem;
+        .bi {
+            margin: 0 10px;
+            font-size: 25px;
+            &-facebook {
+                color: #0866ff;
+            }
+            &-youtube {
+                color: #ff0000;
+            }
+            &-twitter {
+                color: #3ea6ff;
+            }
+        }
+        .instagram {
+            margin: 0 10px;
+            position: relative;
+            width: 25px;
+            height: 25px;            
+            border-radius: 20%;
+            background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);            
+            &:before {
+                border-radius: 20%;
+            }
+            &:after {
+                width: 11px;
+                height: 11px;
+                border-radius: 50%;
+            }
+            .bi-instagram {
+                position: absolute;
+                top: -6px;
+                left: 0;
+                margin: 0;
+            }
+        }
+    }
+}

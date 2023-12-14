@@ -1,6 +1,6 @@
 <div class="container mt-4 d-flex flex-wrap">
-  <div class="col-md-3" *ngFor="let item of posts">
-    <div class="card p-3">
+  <div class="col-md-3 p-1" *ngFor="let item of posts">
+    <div class="card">
       <ng-container
         *ngIf="modify === true && item.id === itemToModifyId; else standardView"
       >
