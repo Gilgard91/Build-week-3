@@ -178,11 +178,22 @@
         </ng-container>
         <ng-template #standardView>
           <div class="col-12">
-            <div class="card p-3">
-              <div class="card-body">
-                <h4 class="card-title">{{ item.title }}</h4>
-                <p class="card-text">{{ item.body }}</p>
-              </div>
+            <div class="card p-3" [ngClass]="{ cardWithImg: item.img !== '' }">
+              <ng-container *ngIf="item.img !== ''; else standardPost">
+                <div class="h-100 d-flex flex-row align-items-center">
+                  <img [src]="item.img" class="card-img-top img-post" />
+                  <div class="card-body">
+                    <h4 class="card-title">{{ item.title }}</h4>
+                    <p class="card-text">{{ item.body }}</p>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-template #standardPost>
+                <div class="card-body">
+                  <h4 class="card-title">{{ item.title }}</h4>
+                  <p class="card-text">{{ item.body }}</p>
+                </div>
+              </ng-template>
               <div class="card-button text-end">
                 <button
                   class="btn btn-outline-primary border-0 mx-1"
