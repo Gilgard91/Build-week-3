@@ -3,7 +3,7 @@
     <div>
       <form [formGroup]="modifyProfileForm">
         <div class="mb-1">
-          <label for="profileUrl" class="form-label">URL Profilo</label>
+          <label for="profileUrl" class="form-label">URL Foto Profilo</label>
           <input
             type="text"
             class="form-control"
@@ -39,12 +39,14 @@
           />
         </div>
       </form>
-      <button class="btn btn-danger" (click)="modifyProfileMethod()">
-        Annulla
-      </button>
-      <button class="btn btn-success" (click)="onPatchProfile()">
-        Modifica
-      </button>
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-danger" (click)="modifyProfileMethod()">
+          Annulla
+        </button>
+        <button class="btn btn-success" (click)="onPatchProfile()">
+          Modifica
+        </button>
+      </div>
     </div>
   </ng-template>
   <div id="profile-sec" class="mt-3">
