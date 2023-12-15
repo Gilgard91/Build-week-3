@@ -1,16 +1,20 @@
-<div class="container d-flex justify-content-center p-40">
-  <ng-container
-    class=""
-    *ngIf="
-      post && modify === false && post.id !== itemToModifyId;
-      else modificato
-    "
-  >
-    <div class="card principaleCard">
-      <img [src]="post.img" class="card-img-top" alt="" />
-
-      <div class="card-body partebody position-relative">
-        <div class="d-flex flex-row justify-content-between">
+<div
+  [ngClass]="{ 'padding-container': post.img === '' && modify === false }"
+  class="container d-flex justify-content-center"
+>
+  <div>
+    <ng-container
+      class=""
+      *ngIf="
+        post && modify === false && post.id !== itemToModifyId;
+        else modificato
+      "
+    >
+      <div class="card principaleCard">
+        <ng-container *ngIf="post.img !== ''">
+          <img [src]="post.img" class="card-img-top" alt="" />
+        </ng-container>
+        <div class="card-body partebody position-relative">
           <ng-container *ngFor="let user of allUsers">
             <div
               class="creator-of-post-section d-flex flex-row align-items-center gap-2 mb-2"
@@ -26,68 +30,85 @@
               </div>
             </div>
           </ng-container>
-          <div>
-            <p class="datapost">{{ final }}</p>
+
+          <h5>{{ post.title }}</h5>
+          <p class="card-text">
+            {{ post.body }}
+          </p>
+          <div class="card-button text-end divbottone">
+            <ng-container
+              *ngIf="utente?.user?.id === post.userId || hasFullAccess()"
+            >
+              <button
+                class="btn btn-outline-primary border-0 mx-1"
+                (click)="modifyPost(post.id)"
+              >
+                <i class="bi bi-pencil-square"></i>
+              </button>
+            </ng-container>
           </div>
         </div>
-        <h5>{{ post.title }}</h5>
-        <p class="card-text">
-          {{ post.body }}
-        </p>
-        <div class="card-button text-end divbottone">
-          <ng-container
-            *ngIf="utente?.user?.id === post.userId || hasFullAccess()"
-          >
-            <button
-              class="btn btn-outline-primary border-0 mx-1"
-              (click)="modifyPost(post.id)"
-            >
-              <i class="bi bi-pencil-square"></i>
-            </button>
-          </ng-container>
-        </div>
       </div>
-    </div>
-  </ng-container>
-  <ng-template #modificato>
-    <form
-      class="h-100 d-flex flex-column justify-content-between"
-      [formGroup]="modifyPostForm"
-      (submit)="onEdit(post.id)"
-    >
-      <div>
-        <div class="input-div">
-          <label for="inputTitle" class="form-label">Titolo: </label>
-          <input
-            type="text"
-            name="title"
-            class="form-control"
-            id="inputTitle"
-            formControlName="title"
-          />
-        </div>
-        <div class="input-div">
-          <label for="inputBody" class="form-label">Body</label>
-          <input
-            type="text"
-            name="body"
-            class="form-control"
-            id="inputBody"
-            formControlName="body"
-          />
-        </div>
-      </div>
-      <button
-        type="submit"
-        id="modify-button"
-        class="btn btn-danger"
-        [disabled]="!modifyPostForm.valid"
+    </ng-container>
+    <ng-template #modificato>
+      <form
+        class="h-100 d-flex flex-column justify-content-between"
+        [formGroup]="modifyPostForm"
+        (submit)="onEdit(post.id)"
       >
-        Conferma
-      </button>
-    </form>
-  </ng-template>
-  <a class="btn btn-primary precedente" [routerLink]="['/posts']"
-    >Torna Indietro</a
-  >
+        <div>
+          <div class="input-div">
+            <label for="inputTitle" class="form-label">Titolo: </label>
+            <input
+              type="text"
+              name="title"
+              class="form-control"
+              id="inputTitle"
+              formControlName="title"
+            />
+          </div>
+          <div class="input-div">
+            <label for="inputPhoto" class="form-label">Foto: </label>
+            <input
+              type="text"
+              name="img"
+              class="form-control"
+              id="inputPhoto"
+              formControlName="img"
+            />
+          </div>
+          <div class="input-div">
+            <label for="inputBody" class="form-label">Body</label>
+            <textarea
+              type="text"
+              name="body"
+              class="form-control"
+              id="inputBody"
+              formControlName="body"
+              cols="30"
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between mt-2">
+          <button
+            type="submit"
+            id="modify-button"
+            class="btn btn-primary"
+            [disabled]="!modifyPostForm.valid"
+          >
+            Conferma
+          </button>
+          <button
+            type="button"
+            id="modify-button"
+            (click)="deleteOp()"
+            class="btn btn-danger"
+          >
+            Annulla
+          </button>
+        </div>
+      </form>
+    </ng-template>
+  </div>
 </div>

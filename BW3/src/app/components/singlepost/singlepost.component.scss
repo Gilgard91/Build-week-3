@@ -7,17 +7,16 @@
   }
 }
 .principaleCard {
-  width: 500px;  
-  height: fit-content;
+  margin-top: 1rem;
+  width: 500px;
   img {
+    height: 250px;
     overflow: hidden;
+    object-fit: cover;
   }
 }
-.datapost {
-  color: #90949c;
-  margin-top: 4px;
-  bottom: 0;
-  right: 3px;
+.padding-container {
+  padding-top: 7rem;
 }
 .creator-of-post-section {
   img {
@@ -37,4 +36,7 @@
 }
 .p-40 {
   padding-top: 40px;
+}
+form {
+  width: 500px;
 }
