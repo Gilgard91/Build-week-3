@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   utente!: AuthData | null;
   posts: Post[] = [];
   sub!: Subscription;
-
+  allUsers!: any[];
   modify: Boolean = false;
   modifyPostForm!: FormGroup;
   postToModify!: Post;
@@ -39,6 +39,10 @@ export class HomeComponent implements OnInit {
       this.utente = _user;
     });
     this.get();
+    this.authSrv.getAllUser().subscribe((all) => {
+      this.allUsers = all;      
+    });
+
   }
 
   hasFullAccess(): boolean {
