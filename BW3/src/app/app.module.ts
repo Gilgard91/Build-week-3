@@ -12,11 +12,9 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllpostComponent } from './components/allpost/allpost.component';
 import { SinglepostComponent } from './components/singlepost/singlepost.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { PostoputComponent } from './components/postoput/postoput.component';
 import { RequestComponent } from './components/request/request.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { ForgotComponent } from './auth/forgot/forgot.component';
 const routes: Route[] = [
   {
@@ -33,11 +31,7 @@ const routes: Route[] = [
     component: SinglepostComponent,
     canActivate: [AuthGuard],
   },
-  {
-    path: 'profilo',
-    component: ProfileComponent,
-    canActivate: [AuthGuard],
-  },
+
   {
     path: 'login',
     component: LoginComponent,
@@ -65,10 +59,8 @@ const routes: Route[] = [
     NavbarComponent,
     AllpostComponent,
     SinglepostComponent,
-    ProfileComponent,
     PostoputComponent,
     RequestComponent,
-    FooterComponent,
     ForgotComponent,
   ],
   imports: [
