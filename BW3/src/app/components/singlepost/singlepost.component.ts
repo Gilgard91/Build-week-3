@@ -10,7 +10,6 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-
 @Component({
   selector: 'app-singlepost',
   templateUrl: './singlepost.component.html',
@@ -77,6 +76,7 @@ export class SinglepostComponent implements OnInit {
       console.log(post);
     });
   }
+
   onEdit(id: number) {
     const data = {
       title: this.modifyPostForm.controls['title'].value,
@@ -91,7 +91,9 @@ export class SinglepostComponent implements OnInit {
       alert(error);
     }
   }
-
+  deleteOp() {
+    window.location.reload();
+  }
   // datapost() {
   //   const date = new Date();
   //   const day = date.getDate();
