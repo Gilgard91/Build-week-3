@@ -14,7 +14,10 @@
         <ng-container *ngIf="post.img !== ''">
           <img [src]="post.img" class="card-img-top" alt="" />
         </ng-container>
-        <div class="card-body partebody position-relative">
+        <div
+          class="card-body partebody position-relative"
+          style="padding-bottom: 1px"
+        >
           <ng-container *ngFor="let user of allUsers">
             <div
               class="creator-of-post-section d-flex flex-row align-items-center gap-2 mb-2"
