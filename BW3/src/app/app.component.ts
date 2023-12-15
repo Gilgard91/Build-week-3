@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'BW3';
   isHomePage: boolean = false;
   isProfile: boolean = false;
+  isRegister:boolean= false;
   constructor(private authSrv: AuthService, private router: Router) {}
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
         // Controlla se sei sulla homepage (percorso vuoto '/')
         this.isHomePage = this.router.url === '/';
         this.isProfile = this.router.url === '/posts';
+        this.isRegister = this.router.url === '/register';
       }
     });
 
