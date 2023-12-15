@@ -45,7 +45,7 @@
       "password": "$2a$10$MJ2FjltTpcMgEGbJ3sMjD.BV7DpSDYiu4h4NFEqfUy2JR0G9BPr7e",
       "nome": "giordano",
       "cognome": "zagatti",
-      "immaginePrf": "aaa",
+      "immaginePrf": "",
       "impiego": "Full Stack Developer",
       "id": 5
     },
