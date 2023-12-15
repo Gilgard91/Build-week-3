@@ -135,12 +135,21 @@
   }
 }
 
-.cardWithImg {
-  height: 400px;
+.img-post {
+  width: 45%;
+  object-fit: cover;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .cardWithImg {
+    height: 400px;
+    background-image: unset !important;
+  }
+}
+@media screen and (max-width: 767px) {
   .img-post {
-    width: 45%;
-    object-fit: cover;
-    height: 100%;
+    display: none;
   }
 }
 i.far.fa-edit {

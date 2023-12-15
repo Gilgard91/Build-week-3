@@ -191,7 +191,13 @@
         </ng-container>
         <ng-template #standardView>
           <div class="col-12">
-            <div class="card p-3" [ngClass]="{ cardWithImg: item.img !== '' }">
+            <div
+              class="card p-3"
+              [ngClass]="{
+                cardWithImg: item.img !== ''
+              }"
+              style="background-image: url('{{ item.img }}')"
+            >
               <ng-container *ngIf="item.img !== ''; else standardPost">
                 <div class="h-100 d-flex flex-row align-items-center">
                   <img [src]="item.img" class="card-img-top img-post" />

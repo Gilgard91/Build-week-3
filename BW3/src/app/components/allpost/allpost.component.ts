@@ -18,6 +18,7 @@ import {
   styleUrls: ['./allpost.component.scss'],
 })
 export class AllpostComponent implements OnInit {
+  [x: string]: any;
   posts: Post[] = [];
   auth!: AuthData[];
   sub!: Subscription;
@@ -36,6 +37,10 @@ export class AllpostComponent implements OnInit {
   impiego!: string;
   newPost: Boolean = false;
 
+  width() {
+    return window.innerWidth;
+  }
+
   constructor(
     private postSrv: ServiceService,
     private authSrv: AuthService,
@@ -49,6 +54,7 @@ export class AllpostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('wdewfrgtyuy', this.width());
     this.authSrv.getAllUser().subscribe((all) => {
       this.allUsers = all;
       console.log(this.allUsers);
