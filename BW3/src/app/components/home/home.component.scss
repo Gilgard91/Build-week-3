@@ -1,42 +1,44 @@
-.col-md-3 {
-    background-color: unset;
-    .card {
-        height: 150px;
-        background-color: white;
-        .card-body {
-            .card-title,
-            .card-text {
-                display: -webkit-box;
-                -webkit-line-clamp: 1;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                color: lightgreen;
-            }
-        } 
-        .card-button {
-            height: 50px;
-            display: flex;
-            justify-content: space-around;
-        }
+.colonna {
+  background-color: unset;
+  .card {
+    height: 150px;
+
+    .card-body {
+      .card-title,
+      .card-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: white;
+      }
     }
-}
-.creator-of-post-section {
-    color: lightgreen;
-    img {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      object-fit: cover;
-      overflow: hidden;
+    .card-button {
+      height: 50px;
+      display: flex;
+      justify-content: space-around;
     }
-    .name-surname {
-      font-size: 14px;
-      font-weight: bold;
-      text-align: start;
-    }
-    .job {
-      font-size: 11px;
-      text-align: start;
+    &::after {
+      content: "";
     }
   }
-  
+}
+.creator-of-post-section {
+  color: white;
+  img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .name-surname {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: start;
+  }
+  .job {
+    font-size: 11px;
+    text-align: start;
+  }
+}
