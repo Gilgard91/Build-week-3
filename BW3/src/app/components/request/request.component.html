@@ -12,14 +12,18 @@
 </ng-container> -->
 <ng-container *ngIf="utente?.user?.id === 1; else standard">
   <div class="container d-flex justify-content-center">
-    <div class="card principaleCard" *ngFor="let single of requestPost">
+    <div class="card principaleCard mx-1" *ngFor="let single of requestPost">
       <h5 class="card-header">{{ single.title }}</h5>
       <div class="card-body partebody position-relative">
         <p class="card-text">
           {{ single.body }}
         </p>
         <p class="position-absolute datapost">
-          {{ utente?.user?.nome + " " + utente?.user?.cognome }}
+          <ng-container *ngFor="let user of allUsers">
+            <div *ngIf="user.id === single.userId">
+              {{ user.nome }} {{ user.cognome }}
+            </div>
+          </ng-container>
         </p>
       </div>
     </div>
@@ -27,7 +31,7 @@
 </ng-container>
 
 <ng-template #standard>
-  <form class="pt-5" [formGroup]="form" (ngSubmit)="Submit()">
+  <form class="mt-5" [formGroup]="form" (ngSubmit)="Submit()">
     <div class="mb-3">
       <label for="title" class="form-label">Title:</label>
       <input

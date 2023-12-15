@@ -16,7 +16,7 @@ export class RequestComponent implements OnInit {
   form: FormGroup;
   utente!: AuthData | null;
   userRequest!: number;
-
+  allUsers!: any[];
   constructor(
     private postSrv: ServiceService,
     private fb: FormBuilder,
@@ -34,6 +34,10 @@ export class RequestComponent implements OnInit {
       console.log(this.utente);
     });
     this.loadPosts();
+    
+    this.authSrv.getAllUser().subscribe((all) => {
+      this.allUsers = all;      
+    });
   }
 
   loadPosts() {
