@@ -196,7 +196,7 @@
               [ngClass]="{
                 cardWithImg: item.img !== ''
               }"
-              style="background-image: url('{{ item.img }}')"
+              style="background-image: url('{{ item.img }}'); "
             >
               <ng-container *ngIf="item.img !== ''; else standardPost">
                 <div class="h-100 d-flex flex-row align-items-center">

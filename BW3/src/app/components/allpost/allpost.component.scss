@@ -151,6 +151,11 @@
   .img-post {
     display: none;
   }
+  .cardWithImg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 i.far.fa-edit {
   font-size: 45px;
